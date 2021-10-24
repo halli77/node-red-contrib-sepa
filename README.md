@@ -1,1 +1,1 @@
-"# node-red-contrib-sepa" 
+# node-red-contrib-sepa
