@@ -9,8 +9,8 @@ Following script tag defines the node
         defaults: {
             name: {value: ""},
             topic: {value: ""},
-            initname: {value: ""},
-            initiban: {value: ""},
+            initname: {value: "", required: true},
+            initiban: {value: "", required: true},
             initbic: {value: ""},
             fileid: {value: ""},
             msgid: {value: ""},
@@ -66,8 +66,8 @@ Define the edit dialog
         <input type="text" id="node-input-topic" placeholder="topic">
     </div>
     <div class="form-row">
-        <label for="node-input-initname"><i class="fa fa-address-card"></i> Name</label>
-        <input type="text" id="node-input-messagetype />
+        <label for="node-input-messagetype"><i class="fa fa-address-card"></i> Message type</label>
+        <input type="text" id="node-input-messagetype" />
     </div>
     <div class="form-row">
         <p>Initiator</p>
@@ -77,22 +77,22 @@ Define the edit dialog
         <input type="text" id="node-input-initname" placeholder="e.g. John Doe" />
     </div>
     <div class="form-row">
-        <label for="node-config-initiban"><i class="fa fa-address-card"></i>IBAN</label>
+        <label for="node-config-initiban"><i class="fa fa-address-card"></i> IBAN</label>
         <input type="text" id="node-input-initiban" placeholder="initiator's IBAN" />
     </div>
     <div class="form-row">
-        <label for="node-config-initbic"><i class="fa fa-address-card"></i>IBAN</label>
+        <label for="node-config-initbic"><i class="fa fa-address-card"></i> BIC</label>
         <input type="text" id="node-input-initbic" placeholder="initiator's BIC" />
     </div>
     <div class="form-row">
         <p>Messaging</p>
     </div>
     <div class="form-row">
-        <label for="node-input-fileid"><i class="fa fa-address-card"></i> Name</label>
+        <label for="node-input-fileid"><i class="fa fa-address-card"></i> File ID</label>
         <input type="text" id="node-input-fileid" placeholder="Your file id" />
     </div>
     <div class="form-row">
-        <label for="node-input-msgid"><i class="fa fa-address-card"></i> Name</label>
+        <label for="node-input-msgid"><i class="fa fa-address-card"></i> Message ID</label>
         <input type="text" id="node-input-msgid" placeholder="Your message id" />
     </div>
     <div class="form-tips">
