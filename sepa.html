@@ -1,11 +1,22 @@
+<!--
+Following script tag defines the node
+-->
+
 <script type="text/javascript">
     RED.nodes.registerType('sepa',{
         category: 'function',
         color: '#A6BBCF',
         defaults: {
             name: {value: ""},
+            topic: {value: ""},
             initname: {value: ""},
-            initiban: {value: ""}
+            initiban: {value: ""},
+            initbic: {value: ""},
+            fileid: {value: ""},
+            msgid: {value: ""},
+            batchbooking: {value: ""},
+            executiondate: {value: ""},
+            messagetype: {value: ""}
         },
         inputs:1,
         outputs:1,
@@ -13,22 +24,76 @@
         label: function() {
             return this.name||"SEPA";
         },
-        paletteLabel: "SEPA"
+        paletteLabel: "SEPA",
+        oneditprepare: function() {
+          // List of msg types in nodes edit dialog
+            $("#node-input-messagetype").typedInput({
+                types: [
+                    {
+                        value: "messagetype",
+                        options: [
+                            { value: "pain.001.001.03", label: "pain.001.001.03 (SEPA-Credit-Transfer)"}
+                        ]
+                    }
+                ]
+            })
+
+
+
+
+
+        }
+
     });
 </script>
+
+
+
+
+
+
+<!--
+Define the edit dialog
+-->
 
 <script type="text/html" data-template-name="sepa">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
+        <input type="text" id="node-input-name" placeholder="node's name">
     </div>
     <div class="form-row">
-        <label for="node-input-initname"><i class="fa fa-address-card"></i> Initiator name</label>
+        <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="topic">
+    </div>
+    <div class="form-row">
+        <label for="node-input-initname"><i class="fa fa-address-card"></i> Name</label>
+        <input type="text" id="node-input-messagetype />
+    </div>
+    <div class="form-row">
+        <p>Initiator</p>
+    </div>
+    <div class="form-row">
+        <label for="node-input-initname"><i class="fa fa-address-card"></i> Name</label>
         <input type="text" id="node-input-initname" placeholder="e.g. John Doe" />
     </div>
     <div class="form-row">
-        <label for="node-config-initiban"><i class="fa fa-address-card"></i> Initiator IBAN</label>
-        <input type="text" id="node-input-initiban" placeholder="DE00123456780123456789" />
+        <label for="node-config-initiban"><i class="fa fa-address-card"></i>IBAN</label>
+        <input type="text" id="node-input-initiban" placeholder="initiator's IBAN" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-initbic"><i class="fa fa-address-card"></i>IBAN</label>
+        <input type="text" id="node-input-initbic" placeholder="initiator's BIC" />
+    </div>
+    <div class="form-row">
+        <p>Messaging</p>
+    </div>
+    <div class="form-row">
+        <label for="node-input-fileid"><i class="fa fa-address-card"></i> Name</label>
+        <input type="text" id="node-input-fileid" placeholder="Your file id" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-msgid"><i class="fa fa-address-card"></i> Name</label>
+        <input type="text" id="node-input-msgid" placeholder="Your message id" />
     </div>
     <div class="form-tips">
         <p></p>
@@ -44,6 +109,13 @@
 </script>
 
 
+
+
+
+
+<!--
+Help section of the node
+-->
 
 <script type="text/html" data-help-name="sepa">
     <p>A node to create SEPA payment files</p>
