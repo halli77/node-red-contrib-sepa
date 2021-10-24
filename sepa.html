@@ -1,0 +1,66 @@
+<script type="text/javascript">
+    RED.nodes.registerType('sepa',{
+        category: 'function',
+        color: '#A6BBCF',
+        defaults: {
+            name: {value: ""},
+            initname: {value: ""},
+            initiban: {value: ""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-bank",
+        label: function() {
+            return this.name||"SEPA";
+        },
+        paletteLabel: "SEPA"
+    });
+</script>
+
+<script type="text/html" data-template-name="sepa">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-initname"><i class="fa fa-address-card"></i> Initiator name</label>
+        <input type="text" id="node-input-initname" placeholder="e.g. John Doe" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-initiban"><i class="fa fa-address-card"></i> Initiator IBAN</label>
+        <input type="text" id="node-input-initiban" placeholder="DE00123456780123456789" />
+    </div>
+    <div class="form-tips">
+        <p></p>
+        <p>Hint: Your choice should be wise</p>
+        <ul>
+            <li>fill all fields</li>
+            <li>don't use spaces</li>
+            <li>be specific</li>
+        </ul>
+    </div>
+
+
+</script>
+
+
+
+<script type="text/html" data-help-name="sepa">
+    <p>A node to create SEPA payment files</p>
+   <h3>Inputs</h3>
+    <dl class="message-properties">
+      <dt class="optional">payload <span class="property-type">string</span></dt>
+      <dd> if no action is set in the node configuration panel, this property specifies the action to be send to the TV.</dd>
+    </dl>
+
+  <h3>Outputs</h3>
+
+  <h3>Details</h3>
+    <p>The node sends a single action to the TV.<br>
+    If no action is given in the node configuration panel, then the action in <code>msg.payload</code> is used.</p>
+
+  <h3>References</h3>
+    <ul>
+      <li><a href="https://github.com/halli77/node-red-contrib-sepa">GitHub</a> - the nodes github repository</li>
+    </ul>
+</script>

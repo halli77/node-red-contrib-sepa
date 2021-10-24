@@ -1,0 +1,20 @@
+{
+  "name": "node-red-contrib-sepa",
+  "version": "0.0.1",
+  "description": "Tool to create SEPA payment files",
+  "node-red": {
+    "nodes": {
+      "sepa": "sepa.js"
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "SEPA",
+    "payments"
+  ],
+  "author": {
+    "name": "Michael Hallmann",
+    "email": "halli@gmx.de",
+    "url": "www.halli-online.de"
+  }
+}
