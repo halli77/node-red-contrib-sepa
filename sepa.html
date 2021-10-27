@@ -32,7 +32,8 @@ Following script tag defines the node
                     {
                         value: "messagetype",
                         options: [
-                            { value: "pain.001.001.03", label: "pain.001.001.03 (SEPA-Credit-Transfer)"}
+                            { value: "pain.001.001.03", label: "pain.001.001.03 (SEPA-Credit-Transfer)" },
+                            { value: "pain.008.001.02", label: "pain.008.001.02 (SEPA-Direct-Debit)" }
                         ]
                     }
                 ]
@@ -70,7 +71,7 @@ Define the edit dialog
         <input type="text" id="node-input-messagetype" />
     </div>
     <div class="form-row">
-        <p>Initiator</p>
+        <p><strong>Initiator</strong></p>
     </div>
     <div class="form-row">
         <label for="node-input-initname"><i class="fa fa-address-card"></i> Name</label>
@@ -85,7 +86,7 @@ Define the edit dialog
         <input type="text" id="node-input-initbic" placeholder="initiator's BIC" />
     </div>
     <div class="form-row">
-        <p>Messaging</p>
+        <p><strong>Messaging</strong></p>
     </div>
     <div class="form-row">
         <label for="node-input-fileid"><i class="fa fa-address-card"></i> File ID</label>
