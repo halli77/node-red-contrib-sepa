@@ -1,12 +1,12 @@
 
 
-class SEPA {
+class sepaXML {
   constructor(messagetype) {
     this.messagetype = messagetype;
     this.status = {fill:"red",shape:"ring",text:"class not initialized"};
   }
 
-  public getStatus() {
+  public function getStatus() {
     return this.status;
   }
 
@@ -16,6 +16,8 @@ class SEPA {
 
 }
 
+
+var sepaxml = new sepaXML("blubb");
 
 
 
@@ -30,12 +32,12 @@ module.exports = function(RED) {
         node.status({fill:"red",shape:"ring",text:"not initialized"});
 
         node.on('input', function(msg) {
-            var sepa = new SEPA("blubb");
+
 
             msg.info = "mein erstes Modul :-)"
-            msg.stream = sepa.getStream();
+            msg.stream = sepaxml.getStream();
             msg.initname = node.initname;
-            node.status = sepa.getStatus();
+            node.status = sepaxml.getStatus();
             node.send(msg);
         });
     }
