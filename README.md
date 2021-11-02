@@ -31,17 +31,9 @@ The input accepts a message object with following attributes (values of the obje
 
 ## Node attributes
 
-* name: node name
-* topic: message topic (overwritten by msg.topic)
-* initname: initiators name
-* initiban: initiators IBAN
-* initbic: initiators BIC
-* msgid: id for message/file
-* batchbooking: batch booking
-* executiondate: requested execution date [YYYY-MM-DD]
-* messagetype: at the moment only pain.001.001.003 (SEPA credit transfer) is supported
-
 An item in the message object with the same name overwrites the values given in the node attributes!
+
+![Edit dialog](/img/edit_dialog.png)
 
 ## Output
 
