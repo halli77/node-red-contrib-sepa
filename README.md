@@ -45,4 +45,4 @@ An item in the message object with the same name overwrites the values given in 
 
 ## Output
 
-<code>msg.payload</code> contains a json-object representing the elements of the message. To . Use the **file write node** to save the string into a file.
+<code>msg.payload</code> contains a json-object representing the elements of the message. To . Use **XML node** to convert the json object into a xml string and afterwards the **file write node** to save the string into a file.
