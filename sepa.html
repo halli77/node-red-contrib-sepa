@@ -5,7 +5,7 @@ Following script tag defines the node
 <script type="text/javascript">
     RED.nodes.registerType('sepa',{
         category: 'function',
-        color: '#A6BBCF',
+        color: '#E9967A',
         defaults: {
             name: {value: ""},
             topic: {value: ""},
@@ -13,10 +13,10 @@ Following script tag defines the node
             initiban: {value: "", required: true},
             initbic: {value: ""},
             fileid: {value: ""},
+            messagetype: {value: ""},
             msgid: {value: ""},
-            batchbooking: {value: ""},
+            batchbooking: {value: true},
             executiondate: {value: ""},
-            messagetype: {value: ""}
         },
         inputs:1,
         outputs:1,
@@ -32,12 +32,16 @@ Following script tag defines the node
                     {
                         value: "messagetype",
                         options: [
-                            { value: "pain.001.001.03", label: "pain.001.001.03 (SEPA-Credit-Transfer)" },
-                            { value: "pain.008.001.02", label: "pain.008.001.02 (SEPA-Direct-Debit)" }
+                            { value: "pain.001.001.03", label: "pain.001.001.03 (SEPA-Credit-Transfer)" }
                         ]
                     }
                 ]
-            })
+            });
+            $("#node-input-batchbooking").typedInput({
+                type:"bool",
+                types:["bool"],
+                typeField: "#node-input-batchbooking-type"
+            });
 
 
 
@@ -67,10 +71,6 @@ Define the edit dialog
         <input type="text" id="node-input-topic" placeholder="topic">
     </div>
     <div class="form-row">
-        <label for="node-input-messagetype"><i class="fa fa-address-card"></i> Message type</label>
-        <input type="text" id="node-input-messagetype" />
-    </div>
-    <div class="form-row">
         <p><strong>Initiator</strong></p>
     </div>
     <div class="form-row">
@@ -89,12 +89,21 @@ Define the edit dialog
         <p><strong>Messaging</strong></p>
     </div>
     <div class="form-row">
-        <label for="node-input-fileid"><i class="fa fa-address-card"></i> File ID</label>
-        <input type="text" id="node-input-fileid" placeholder="Your file id" />
+        <label for="node-input-messagetype"><i class="fa fa-address-card"></i> Message type</label>
+        <input type="text" id="node-input-messagetype" />
     </div>
     <div class="form-row">
         <label for="node-input-msgid"><i class="fa fa-address-card"></i> Message ID</label>
         <input type="text" id="node-input-msgid" placeholder="Your message id" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-batchbooking"><i class="fa fa-address-card"></i> Batch-booking</label>
+        <input type="text" id="node-input-batchbooking">
+        <input type="hidden" id="node-input-batchbooking-type">
+    </div>
+    <div class="form-row">
+        <label for="node-input-executiondate"><i class="fa fa-address-card"></i> Execution date</label>
+        <input type="text" id="node-input-executiondate" placeholder="2021-11-30" />
     </div>
     <div class="form-tips">
         <p></p>
@@ -120,17 +129,7 @@ Help section of the node
 
 <script type="text/html" data-help-name="sepa">
     <p>A node to create SEPA payment files</p>
-   <h3>Inputs</h3>
-    <dl class="message-properties">
-      <dt class="optional">payload <span class="property-type">string</span></dt>
-      <dd> if no action is set in the node configuration panel, this property specifies the action to be send to the TV.</dd>
-    </dl>
-
-  <h3>Outputs</h3>
-
-  <h3>Details</h3>
-    <p>The node sends a single action to the TV.<br>
-    If no action is given in the node configuration panel, then the action in <code>msg.payload</code> is used.</p>
+   
 
   <h3>References</h3>
     <ul>
