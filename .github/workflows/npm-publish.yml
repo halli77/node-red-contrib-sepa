@@ -1,0 +1,18 @@
+# This workflow will publish a package to npmjs.org when triggered manually
+
+name: publish to npmjs.org
+
+on: workflow_dispatch
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
