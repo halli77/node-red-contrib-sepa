@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
+  <CstmrCdtTrfInitn>
+    <GrpHdr>
+      <MsgId>2021-11-05T10:12:22.267Z</MsgId>
+      <CreDtTm>2021-11-05T10:12:22.285Z</CreDtTm>
+      <NbOfTxs>2</NbOfTxs>
+      <CtrlSum>555.55</CtrlSum>
+      <InitgPty>
+        <Nm>DRK</Nm>
+      </InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>2021-11-05T10:12:22.267Z</PmtInfId>
+      <PmtMtd>TRF</PmtMtd>
+      <BtchBookg>true</BtchBookg>
+      <NbOfTxs>2</NbOfTxs>
+      <CtrlSum>555.55</CtrlSum>
+      <ReqdExctnDt>2021-11-05</ReqdExctnDt>
+      <Dbtr>
+        <Nm>DRK</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <IBAN>DE11684522900014887830</IBAN>
+        </Id>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <BIC>SKHRDE6WXXX</BIC>
+        </FinInstnId>
+      </DbtrAgt>
+      <ChrgBr>SLEV</ChrgBr>
+      <CdtTrfTxInf>
+        <PmtId>
+          <EndToEndId>e2eid 3</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="EUR">333.33</InstdAmt>
+        </Amt>
+        <Cdtr>
+          <Nm>Tami und Halli</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <IBAN>DE52684522901002211777</IBAN>
+          </Id>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>tsa 3 an tami und halli</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+      <CdtTrfTxInf>
+        <PmtId>
+          <EndToEndId>e2eid 3</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="EUR">333.33</InstdAmt>
+        </Amt>
+        <Cdtr>
+          <Nm>Tami und Halli</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <IBAN>DE52684522901002211777</IBAN>
+          </Id>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>tsa 3 an tami und halli</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+    </PmtInf>
+  </CstmrCdtTrfInitn>
+</Document>

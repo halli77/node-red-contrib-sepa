@@ -1,3 +1,6 @@
 .github/
 .gitignore
 dev/
+test/
+node_modules/
+package-lock.json

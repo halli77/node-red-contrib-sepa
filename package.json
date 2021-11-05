@@ -2,6 +2,9 @@
   "name": "node-red-contrib-sepa",
   "version": "0.0.2",
   "description": "A node to create SEPA payment files",
+  "dependencies": {
+    "xml2js": "^0.4.23"
+  },
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
