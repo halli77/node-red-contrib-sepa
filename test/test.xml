@@ -2,32 +2,32 @@
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
   <CstmrCdtTrfInitn>
     <GrpHdr>
-      <MsgId>2021-11-05T10:20:19.975Z</MsgId>
-      <CreDtTm>2021-11-05T10:20:19.988Z</CreDtTm>
-      <NbOfTxs>2</NbOfTxs>
-      <CtrlSum>555.55</CtrlSum>
+      <MsgId>2021-11-05T12:03:18.446Z</MsgId>
+      <CreDtTm>2021-11-05T12:03:18.446Z</CreDtTm>
+      <NbOfTxs>0</NbOfTxs>
+      <CtrlSum>0</CtrlSum>
       <InitgPty>
-        <Nm>DRK</Nm>
+        <Nm>initiators name</Nm>
       </InitgPty>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>2021-11-05T10:20:19.975Z</PmtInfId>
+      <PmtInfId>2021-11-05T12:03:18.446Z</PmtInfId>
       <PmtMtd>TRF</PmtMtd>
       <BtchBookg>true</BtchBookg>
-      <NbOfTxs>2</NbOfTxs>
-      <CtrlSum>555.55</CtrlSum>
+      <NbOfTxs>0</NbOfTxs>
+      <CtrlSum>0</CtrlSum>
       <ReqdExctnDt>2021-11-05</ReqdExctnDt>
       <Dbtr>
-        <Nm>DRK</Nm>
+        <Nm>initiators name</Nm>
       </Dbtr>
       <DbtrAcct>
         <Id>
-          <IBAN>DE11684522900014887830</IBAN>
+          <IBAN>DE00123456781234567890</IBAN>
         </Id>
       </DbtrAcct>
       <DbtrAgt>
         <FinInstnId>
-          <BIC>SKHRDE6WXXX</BIC>
+          <BIC>MARKDEFFXXX</BIC>
         </FinInstnId>
       </DbtrAgt>
       <ChrgBr>SLEV</ChrgBr>
@@ -43,7 +43,7 @@
         </Cdtr>
         <CdtrAcct>
           <Id>
-            <IBAN>DE52684522901002211777</IBAN>
+            <IBAN>DE00123456781234567890</IBAN>
           </Id>
         </CdtrAcct>
         <RmtInf>
@@ -62,7 +62,7 @@
         </Cdtr>
         <CdtrAcct>
           <Id>
-            <IBAN>DE52684522901002211777</IBAN>
+            <IBAN>DE00123456781234567890</IBAN>
           </Id>
         </CdtrAcct>
         <RmtInf>
