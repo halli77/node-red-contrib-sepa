@@ -12,7 +12,7 @@ module.exports = function(RED) {
         node.status({});
 
         node.on('input', function(msg) {
-            const SepaXML = require('../lib/sepaXML');
+            const SepaXML = require('./lib/sepaXML');
             var x = new SepaXML(config.messagetype);
             x.initName = (msg.hasOwnProperty("initname")) ? msg.initname : config.initname;
             x.initIBAN = (msg.hasOwnProperty("initiban")) ? msg.initiban : config.initiban;
