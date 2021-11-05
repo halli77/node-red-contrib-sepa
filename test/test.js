@@ -1,8 +1,6 @@
 const SepaXML = require('../lib/sepaXML');
 var x = new SepaXML('pain.001.001.03');
 
-console.log('hello world');
-console.log(x);
 
 
 x.initName = 'DRK';
@@ -16,17 +14,13 @@ x.newTx("Tami und Halli", "DE52684522901002211777", 333.33, 'tsa 3 an tami und h
 
 const fs = require('fs');
 const path = require('path');
-const xml2js = require('xml2js');
-
-let builder = new xml2js.Builder();
-let xml = builder.buildObject(x.getMsgAsJson());
 
 fs.writeFile(
   path.join(__dirname, 'test.xml'),
-  xml,
+  x.getMsgAsXmlString(),
   err => {
     if (err) throw err;
-    console.log('File written to...');
+    console.log('written text.xml to testfolder');
   }
 );
 
@@ -34,4 +28,3 @@ fs.writeFile(
 
 // console.log(x.getMsgAsJson());
 
-console.log(xml);

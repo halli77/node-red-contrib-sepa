@@ -2,8 +2,8 @@
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
   <CstmrCdtTrfInitn>
     <GrpHdr>
-      <MsgId>2021-11-05T10:12:22.267Z</MsgId>
-      <CreDtTm>2021-11-05T10:12:22.285Z</CreDtTm>
+      <MsgId>2021-11-05T10:20:19.975Z</MsgId>
+      <CreDtTm>2021-11-05T10:20:19.988Z</CreDtTm>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>555.55</CtrlSum>
       <InitgPty>
@@ -11,7 +11,7 @@
       </InitgPty>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>2021-11-05T10:12:22.267Z</PmtInfId>
+      <PmtInfId>2021-11-05T10:20:19.975Z</PmtInfId>
       <PmtMtd>TRF</PmtMtd>
       <BtchBookg>true</BtchBookg>
       <NbOfTxs>2</NbOfTxs>

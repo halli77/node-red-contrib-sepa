@@ -12,7 +12,7 @@ module.exports = function(RED) {
         node.status({});
 
         node.on('input', function(msg) {
-            const SepaXML = require('./sepaXML');
+            const SepaXML = require('../lib/sepaXML');
             var x = new SepaXML(config.messagetype);
             x.initName = (msg.hasOwnProperty("initname")) ? msg.initname : config.initname;
             x.initIBAN = (msg.hasOwnProperty("initiban")) ? msg.initiban : config.initiban;
@@ -25,7 +25,7 @@ module.exports = function(RED) {
               x.newTx(tx.name, tx.iban, tx.amount, tx.purpose, tx.id);
             });
 
-            msg.payload = x.getMsgAsJson();
+            msg.payload = x.getMsgAsXmlString();
             this.send(msg);
             node.status({fill:"blue",shape:"ring",text:x.txCount + ' transactions, ' + x.txSum + ' EUR'});
         });
