@@ -2,23 +2,23 @@
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
   <CstmrCdtTrfInitn>
     <GrpHdr>
-      <MsgId>2021-11-05T12:03:18.446Z</MsgId>
-      <CreDtTm>2021-11-05T12:03:18.446Z</CreDtTm>
+      <MsgId>2021-11-05T19:00:50.115Z</MsgId>
+      <CreDtTm>2021-11-05T19:00:50.115Z</CreDtTm>
       <NbOfTxs>0</NbOfTxs>
       <CtrlSum>0</CtrlSum>
       <InitgPty>
-        <Nm>initiators name</Nm>
+        <Nm>Halli</Nm>
       </InitgPty>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>2021-11-05T12:03:18.446Z</PmtInfId>
+      <PmtInfId>2021-11-05T19:00:50.115Z</PmtInfId>
       <PmtMtd>TRF</PmtMtd>
-      <BtchBookg>true</BtchBookg>
+      <BtchBookg>false</BtchBookg>
       <NbOfTxs>0</NbOfTxs>
       <CtrlSum>0</CtrlSum>
       <ReqdExctnDt>2021-11-05</ReqdExctnDt>
       <Dbtr>
-        <Nm>initiators name</Nm>
+        <Nm>Halli</Nm>
       </Dbtr>
       <DbtrAcct>
         <Id>
@@ -27,7 +27,7 @@
       </DbtrAcct>
       <DbtrAgt>
         <FinInstnId>
-          <BIC>MARKDEFFXXX</BIC>
+          <BIC>MARKDEFF</BIC>
         </FinInstnId>
       </DbtrAgt>
       <ChrgBr>SLEV</ChrgBr>

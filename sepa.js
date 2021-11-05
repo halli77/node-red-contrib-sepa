@@ -25,9 +25,16 @@ module.exports = function(RED) {
               x.newTx(tx.name, tx.iban, tx.amount, tx.purpose, tx.id);
             });
 
-            msg.payload = x.getMsgAsXmlString();
-            this.send(msg);
-            node.status({fill:"blue",shape:"ring",text:x.txCount + ' transactions, ' + x.txSum + ' EUR'});
+            try {
+              msg.payload = x.getMsgAsXmlString();
+              this.send(msg);
+              node.status({fill:"blue",shape:"ring",text:x.txCount + ' transactions, ' + x.txSum + ' EUR'});
+            } catch (err) {
+                node.error(err);
+                node.status({fill:"red",shape:"dot",text:err});
+            }
+            
+            
         });
     }
     RED.nodes.registerType("sepa",SepaNode);
