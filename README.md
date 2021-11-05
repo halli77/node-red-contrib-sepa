@@ -1,6 +1,6 @@
 # node-red-contrib-sepa
 ## What does this package do?
-This package provides a node "SEPA" that generates payment files.
+A [Node-RED](https://nodered.org/)-node that generates SEPA payment files.
 
 ## Input
 The input accepts a message object with following attributes (values of the object are dummy values):
@@ -37,4 +37,4 @@ An item in the message object with the same name overwrites the values given in 
 
 ## Output
 
-<code>msg.payload</code> contains a json-object representing the elements of the message. To . Use **XML node** to convert the json object into a xml string and afterwards the **file write node** to save the string into a file.
+`msg.payload` contains a xml-string representing the SEPA-payment file. Use the **write file**-node to save as a xml-file.
