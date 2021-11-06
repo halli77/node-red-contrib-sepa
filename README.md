@@ -1,5 +1,5 @@
 # node-red-contrib-sepa
-## What does this package do?
+
 A [Node-RED](https://nodered.org/)-node that generates SEPA payment files.
 
 ## Input
@@ -33,7 +33,7 @@ The input accepts a message object with following attributes (values of the obje
 
 An item in the message object with the same name overwrites the values given in the node attributes!
 
-![Edit dialog](/img/edit_dialog.png)
+![Edit dialog](./img/edit_dialog.png)
 
 ## Output
 
