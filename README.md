@@ -1,6 +1,8 @@
 # node-red-contrib-sepa
 
-A [Node-RED](https://nodered.org/)-node that generates SEPA payment files.
+A [Node-RED](https://nodered.org/)-node that generates [SEPA](https://en.wikipedia.org/wiki/Single_Euro_Payments_Area) payment files.
+
+At the moment, only pain.001.001.03 (SEPA credit transfer) is supported.
 
 ## Input
 The input accepts a message object with following attributes (values of the object are dummy values):
@@ -28,6 +30,8 @@ The input accepts a message object with following attributes (values of the obje
   ],
 }
 ```
+
+If `tx.id`is empty, an ISO-timestamp is used instead.
 
 ## Node attributes
 

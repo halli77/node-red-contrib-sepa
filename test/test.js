@@ -3,16 +3,15 @@ var x = new SepaXML('pain.001.001.03');
 
 
 
-x.initName = 'Halli';
+x.initName = 'initName: Halli';
 x.initIBAN = 'DE00123456781234567890';
 x.initBIC = 'MARKDEFF';
 x.batchBooking = false;
 // x.msgId = 'testfile';
 
 
-// x.newTx("Halli", "DE11684522901000102622", 111.11, 'tsa 1 an halli', 'e2eid 1');
-x.newTx("Tom", "DE00123456781234567890", 222.22, 'tsa 2 an tom', '');
-x.newTx("Tami und Halli", "DE00123456781234567890", 333.33, 'tsa 3 an tami und halli', 'e2eid 3');
+x.newTx("Creditor 1", "DE00123456781234567890", 1.11, 'purpose 1', 'id 1');
+x.newTx("Creditor 2", "DE00123456781234567890", 2.22, 'purpose 2', 'id 2');
 
 
 const fs = require('fs');

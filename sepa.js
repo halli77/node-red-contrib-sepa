@@ -21,14 +21,20 @@ module.exports = function(RED) {
             x.batchBooking = (msg.hasOwnProperty("batchbooking")) ? msg.batchbooking : config.batchbooking;
             x.executiondate = (msg.hasOwnProperty("executiondate")) ? msg.executiondate : config.executiondate;
           
-            msg.tx.forEach( (tx) => {
-              x.newTx(tx.name, tx.iban, tx.amount, tx.purpose, tx.id);
+            msg.tx.forEach( tx => {
+              try {
+                x.newTx(tx.name, tx.iban, tx.amount, tx.purpose, tx.id);
+              } catch (err) {
+                node.error(err);
+                node.status({fill:"red",shape:"dot",text:err});
+              }
+              
             });
 
             try {
               msg.payload = x.getMsgAsXmlString();
               this.send(msg);
-              node.status({fill:"blue",shape:"ring",text:x.txCount + ' transactions, ' + x.txSum + ' EUR'});
+              node.status({fill:"blue",shape:"ring",text:x.getTxCt() + ' transactions, ' + x.getTxSum() + ' EUR'});
             } catch (err) {
                 node.error(err);
                 node.status({fill:"red",shape:"dot",text:err});

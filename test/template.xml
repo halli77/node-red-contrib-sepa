@@ -2,8 +2,8 @@
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
   <CstmrCdtTrfInitn>
     <GrpHdr>
-      <MsgId>2021-11-06T17:36:32.178Z</MsgId>
-      <CreDtTm>2021-11-06T17:36:32.192Z</CreDtTm>
+      <MsgId>2021-11-06T16:32:50.854Z</MsgId>
+      <CreDtTm>2021-11-06T16:32:50.858Z</CreDtTm>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>3.33</CtrlSum>
       <InitgPty>
@@ -11,7 +11,7 @@
       </InitgPty>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>2021-11-06T17:36:32.178Z</PmtInfId>
+      <PmtInfId>2021-11-06T16:32:50.854Z</PmtInfId>
       <PmtMtd>TRF</PmtMtd>
       <BtchBookg>false</BtchBookg>
       <NbOfTxs>2</NbOfTxs>
@@ -22,7 +22,7 @@
       </Dbtr>
       <DbtrAcct>
         <Id>
-          <IBAN>DE00123456781234567890</IBAN>
+          <IBAN>initIBAN: 123</IBAN>
         </Id>
       </DbtrAcct>
       <DbtrAgt>
@@ -33,21 +33,21 @@
       <ChrgBr>SLEV</ChrgBr>
       <CdtTrfTxInf>
         <PmtId>
-          <EndToEndId>id 1</EndToEndId>
+          <EndToEndId>id 2</EndToEndId>
         </PmtId>
         <Amt>
-          <InstdAmt Ccy="EUR">1.11</InstdAmt>
+          <InstdAmt Ccy="EUR">2.22</InstdAmt>
         </Amt>
         <Cdtr>
-          <Nm>Creditor 1</Nm>
+          <Nm>Creditor 2</Nm>
         </Cdtr>
         <CdtrAcct>
           <Id>
-            <IBAN>DE00123456781234567890</IBAN>
+            <IBAN>Creditor-IBAN-2</IBAN>
           </Id>
         </CdtrAcct>
         <RmtInf>
-          <Ustrd>purpose 1</Ustrd>
+          <Ustrd>purpose 2</Ustrd>
         </RmtInf>
       </CdtTrfTxInf>
       <CdtTrfTxInf>
@@ -62,7 +62,7 @@
         </Cdtr>
         <CdtrAcct>
           <Id>
-            <IBAN>DE00123456781234567890</IBAN>
+            <IBAN>Creditor-IBAN-2</IBAN>
           </Id>
         </CdtrAcct>
         <RmtInf>
