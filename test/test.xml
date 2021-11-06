@@ -2,20 +2,20 @@
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
   <CstmrCdtTrfInitn>
     <GrpHdr>
-      <MsgId>2021-11-06T07:16:55.486Z</MsgId>
-      <CreDtTm>2021-11-06T07:16:55.486Z</CreDtTm>
-      <NbOfTxs>0</NbOfTxs>
-      <CtrlSum>0</CtrlSum>
+      <MsgId>2021-11-06T08:40:45.208Z</MsgId>
+      <CreDtTm>2021-11-06T08:40:45.208Z</CreDtTm>
+      <NbOfTxs>2</NbOfTxs>
+      <CtrlSum>555.55</CtrlSum>
       <InitgPty>
         <Nm>Halli</Nm>
       </InitgPty>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>2021-11-06T07:16:55.486Z</PmtInfId>
+      <PmtInfId>2021-11-06T08:40:45.208Z</PmtInfId>
       <PmtMtd>TRF</PmtMtd>
       <BtchBookg>false</BtchBookg>
-      <NbOfTxs>0</NbOfTxs>
-      <CtrlSum>0</CtrlSum>
+      <NbOfTxs>2</NbOfTxs>
+      <CtrlSum>555.55</CtrlSum>
       <ReqdExctnDt>2021-11-06</ReqdExctnDt>
       <Dbtr>
         <Nm>Halli</Nm>
