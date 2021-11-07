@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-sepa",
   "version": "0.2.0",
-  "description": "A NODE-red node to create SEPA payment files",
+  "description": "A Node-RED node to create SEPA payment files",
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
