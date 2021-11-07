@@ -2,9 +2,6 @@
   "name": "node-red-contrib-sepa",
   "version": "0.2.0",
   "description": "A NODE-red node to create SEPA payment files",
-  "dependencies": {
-    "xmlbuilder": "^15.1.1"
-  },
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
@@ -25,5 +22,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/halli77/node-red-contrib-sepa.git"
+  },
+  "dependencies": {
+    "xmlbuilder": "^15.1.1"
   }
 }
