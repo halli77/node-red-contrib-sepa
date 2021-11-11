@@ -1,17 +1,16 @@
-const SepaXML = require('../lib/sepaXML');
-var x = new SepaXML('pain.001.001.03');
+const SepaSCT = require('../lib/sepaSCT');
 
 
+try {
 
-x.initName = 'initName: Halli';
-x.initIBAN = 'DE00123456781234567890';
-x.initBIC = 'MARKDEFF';
-x.batchBooking = false;
-// x.msgId = 'testfile';
+  var x = new SepaSCT('initName', 'DE00123456781234567890', 'markdeff');
+  x.newTx("Creditor 1", "DE00123456781234567890", 1.11, 'purpose 1', 'id 1');
+  x.newTx("Creditor 2", "DE00123456781234567890", 2.22, 'purpose 2', 'id 2');
 
+} catch (err) {
+  console.log('========>>> ' + err);
+}
 
-x.newTx("Creditor 1", "DE00123456781234567890", 1.11, 'purpose 1', 'id 1');
-x.newTx("Creditor 2", "DE00123456781234567890", 2.22, 'purpose 2', 'id 2');
 
 
 const fs = require('fs');
@@ -30,7 +29,7 @@ try {
     }
   )
 } catch (err) {
-  console.log(err);
+  console.log('========>>> ' + err);
 }
 
 
