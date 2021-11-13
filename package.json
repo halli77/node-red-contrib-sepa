@@ -5,7 +5,8 @@
   "node-red": {
     "version": ">=2.0.0",
     "nodes": {
-      "sepa": "sepa.js"
+      "sepa-sct": "sepa-sct.js",
+      "sepa-sdd": "sepa-sdd.js"
     }
   },
   "license": "MIT",

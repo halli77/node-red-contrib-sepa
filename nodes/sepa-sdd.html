@@ -3,7 +3,7 @@ Following script tag defines the node
 -->
 
 <script type="text/javascript">
-    RED.nodes.registerType('sepa',{
+    RED.nodes.registerType('sepa-sdd',{
         category: 'function',
         color: '#E9967A',
         defaults: {
@@ -22,7 +22,7 @@ Following script tag defines the node
         outputs:1,
         icon: "font-awesome/fa-bank",
         label: function() {
-            return this.name||"SEPA";
+            return this.name||"#alpha! SEPA Direct Debit";
         },
         paletteLabel: "SEPA",
         oneditprepare: function() {
@@ -61,7 +61,7 @@ Following script tag defines the node
 Define the edit dialog
 -->
 
-<script type="text/html" data-template-name="sepa">
+<script type="text/html" data-template-name="sepa-sdd">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="node's name">
@@ -122,7 +122,7 @@ Define the edit dialog
 Help section of the node
 -->
 
-<script type="text/html" data-help-name="sepa">
+<script type="text/html" data-help-name="sepa-sdd">
     <p>A node to create SEPA payment files</p>
    
 

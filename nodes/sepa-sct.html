@@ -1,0 +1,133 @@
+<!--
+Following script tag defines the node
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('sepa-sct',{
+        category: 'function',
+        color: '#E9967A',
+        defaults: {
+            name: {value: ""},
+            topic: {value: ""},
+            initname: {value: ""},
+            initiban: {value: ""},
+            initbic: {value: ""},
+            fileid: {value: ""},
+            messagetype: {value: ""},
+            msgid: {value: ""},
+            batchbooking: {value: true},
+            executiondate: {value: ""},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-bank",
+        label: function() {
+            return this.name||"SEPA Credit Transfer";
+        },
+        paletteLabel: "SEPA",
+        oneditprepare: function() {
+          // List of msg types in nodes edit dialog
+            $("#node-input-messagetype").typedInput({
+                types: [
+                    {
+                        value: "messagetype",
+                        options: [
+                            { value: "pain.001.001.03", label: "pain.001.001.03 (SEPA-Credit-Transfer)" }
+                        ]
+                    }
+                ]
+            });
+            $("#node-input-batchbooking").typedInput({
+                type:"bool",
+                types:["bool"],
+                typeField: "#node-input-batchbooking-type"
+            });
+
+
+
+
+
+        }
+
+    });
+</script>
+
+
+
+
+
+
+<!--
+Define the edit dialog
+-->
+
+<script type="text/html" data-template-name="sepa-sct">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="node's name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="topic">
+    </div>
+    <div class="form-row">
+        <p><strong>Initiator</strong></p>
+    </div>
+    <div class="form-row">
+        <label for="node-input-initname"><i class="fa fa-university"></i> Name</label>
+        <input type="text" id="node-input-initname" placeholder="e.g. John Doe" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-initiban"><i class="fa fa-university"></i> IBAN</label>
+        <input type="text" id="node-input-initiban" placeholder="initiator's IBAN" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-initbic"><i class="fa fa-university"></i> BIC</label>
+        <input type="text" id="node-input-initbic" placeholder="initiator's BIC" />
+    </div>
+    <div class="form-row">
+        <p><strong>Messaging</strong></p>
+    </div>
+    <div class="form-row">
+        <label for="node-input-messagetype"><i class="fa fa-envelope-o"></i> Msg.type</label>
+        <input type="text" id="node-input-messagetype" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-msgid"><i class="fa fa-tag"></i> Msg.ID</label>
+        <input type="text" id="node-input-msgid" placeholder="Your message id" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-batchbooking"><i class="fa fa-list"></i> Batch-booking</label>
+        <input type="text" id="node-input-batchbooking">
+        <input type="hidden" id="node-input-batchbooking-type">
+    </div>
+    <div class="form-row">
+        <label for="node-input-executiondate"><i class="fa fa-clock-o"></i> Execution date</label>
+        <input type="text" id="node-input-executiondate" placeholder="2021-11-30" />
+    </div>
+    <div class="form-tips">
+        <p></p>
+        <p>See <a href="https://github.com/halli77/node-red-contrib-sepa" target="_blank">docs at github</a> for detailed information.</p>
+    </div>
+
+
+</script>
+
+
+
+
+
+
+<!--
+Help section of the node
+-->
+
+<script type="text/html" data-help-name="sepa-sct">
+    <p>A node to create SEPA files</p>
+   
+
+  <h3>References</h3>
+    <ul>
+      <li><a href="https://github.com/halli77/node-red-contrib-sepa">GitHub</a> - the nodes github repository</li>
+    </ul>
+</script>

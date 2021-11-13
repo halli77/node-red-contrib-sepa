@@ -12,7 +12,7 @@ module.exports = function(RED) {
         node.status({});
 
         node.on('input', function(msg) {
-            const SepaSCT = require('./lib/sepaSCT');
+            const SepaSCT = require('../lib/sepaSCT');
             
 
             try {
@@ -49,5 +49,5 @@ module.exports = function(RED) {
             
         });
     }
-    RED.nodes.registerType("sepa",SepaNode);
+    RED.nodes.registerType("sepa-sct",SepaSctNode);
 }
