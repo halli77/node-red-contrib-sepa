@@ -4,7 +4,7 @@ Following script tag defines the node
 
 <script type="text/javascript">
     RED.nodes.registerType('sepa-sct',{
-        category: 'function',
+        category: 'SEPA',
         color: '#E9967A',
         defaults: {
             name: {value: ""},
@@ -24,7 +24,7 @@ Following script tag defines the node
         label: function() {
             return this.name||"SEPA Credit Transfer";
         },
-        paletteLabel: "SEPA SCT",
+        paletteLabel: "SEPA Credit Transfer",
         oneditprepare: function() {
           // List of msg types in nodes edit dialog
             $("#node-input-messagetype").typedInput({

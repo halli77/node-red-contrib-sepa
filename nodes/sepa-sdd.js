@@ -49,5 +49,5 @@ module.exports = function(RED) {
             
         });
     }
-    RED.nodes.registerType("sepa",SepaNode);
+    RED.nodes.registerType("sepa",SepaSddNode);
 }
