@@ -5,7 +5,7 @@ name: publish to npmjs.org
 on: 
   release:
     types: [ published ]
-  workflow_dispatch:
+#  workflow_dispatch:
 
 jobs:
   publish-npm:
