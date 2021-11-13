@@ -21,4 +21,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - uses: hacksore/node-red-flow@v2
         with:
-        repo: 'node-red-contrib-sepa'
+          repo: 'node-red-contrib-sepa'
