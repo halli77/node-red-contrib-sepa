@@ -1,7 +1,7 @@
 
 
 module.exports = function(RED) {
-    function SepaNode(config) {
+    function SepaSctNode(config) {
         RED.nodes.createNode(this,config);
        
         this.initname = config.initname;

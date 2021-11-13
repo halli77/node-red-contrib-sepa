@@ -1,7 +1,7 @@
 
 
 module.exports = function(RED) {
-    function SepaNode(config) {
+    function SepaSddNode(config) {
         RED.nodes.createNode(this,config);
        
         this.initname = config.initname;
@@ -12,7 +12,7 @@ module.exports = function(RED) {
         node.status({});
 
         node.on('input', function(msg) {
-            const SepaSCT = require('../lib/sepaSDD');
+            const SepaSDD = require('../lib/sepaSDD');
             
 
             try {
