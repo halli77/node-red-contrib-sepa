@@ -2,7 +2,7 @@
 
 [Node-RED](https://nodered.org/)-nodes that generates [SEPA](https://en.wikipedia.org/wiki/Single_Euro_Payments_Area) payment files.
 
-At the moment, only the SEPA Credit Transfer node is working, Direct Debit node is experimental!
+At the moment, this project is under development and not for use in production!
 
 ## SEPA Credit Transfer
 A credit transfer sends money from the initator (debitor) to on or more recipients (creditors). 
