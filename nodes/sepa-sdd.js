@@ -7,6 +7,8 @@ module.exports = function(RED) {
         this.initname = config.initname;
         this.initiban = config.initiban;
         this.initbic = config.initbic;
+        this.creditorid = config.creditorid;
+        this.sequencetype = config.sequencetype;
         var node = this;
 
         node.status({});
@@ -19,8 +21,9 @@ module.exports = function(RED) {
               let name = (msg.hasOwnProperty("initname")) ? msg.initname : config.initname;
               let iban = (msg.hasOwnProperty("initiban")) ? msg.initiban : config.initiban;
               let bic =  (msg.hasOwnProperty("initbic")) ? msg.initbic : config.initbic;
-
-              var x = new SepaSDD(name, iban, bic);
+              let creditorid = (msg.hasOwnProperty("creditorid")) ? msg.creditorid : config.creditorid;
+              let sequencetype = (msg.hasOwnProperty("sequencetype")) ? msg.sequencetype : config.sequencetype;
+              var x = new SepaSDD(name, iban, bic, creditorid, sequencetype);
 
               x.messagetype = config.messagetype;
               x.msgId = (msg.hasOwnProperty("msgid")) ? msg.msgid : config.msgid;

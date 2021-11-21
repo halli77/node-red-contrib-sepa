@@ -17,6 +17,8 @@ Following script tag defines the node
             msgid: {value: ""},
             batchbooking: {value: true},
             executiondate: {value: ""},
+            creditorid: {value: ""},
+            lclinstrm: {value: ""}
         },
         inputs:1,
         outputs:1,
@@ -37,15 +39,34 @@ Following script tag defines the node
                     }
                 ]
             });
+            $("#node-input-lclinstrm").typedInput({
+                types: [
+                    {
+                        value: "lclinstrm",
+                        options: [
+                            { value: "FRST", label: "FRST" },
+                            { value: "RCUR", label: "RCUR" },
+                            { value: "LAST", label: "LAST" }
+                        ]
+                    }
+                ]
+            });
+            $("#node-input-sequencetype").typedInput({
+                types: [
+                    {
+                        value: "sequencetype",
+                        options: [
+                            { value: "CORE", label: "CORE" },
+                            { value: "B2B", label: "B2B" }
+                        ]
+                    }
+                ]
+            });
             $("#node-input-batchbooking").typedInput({
                 type:"bool",
                 types:["bool"],
                 typeField: "#node-input-batchbooking-type"
             });
-
-
-
-
 
         }
 
@@ -86,11 +107,23 @@ Define the edit dialog
         <input type="text" id="node-input-initbic" placeholder="initiator's BIC" />
     </div>
     <div class="form-row">
+        <label for="node-config-creditorid"><i class="fa fa-university"></i> Creditor ID</label>
+        <input type="text" id="node-input-ci" placeholder="initiator's creditor id" />
+    </div>
+    <div class="form-row">
         <p><strong>Messaging</strong></p>
     </div>
     <div class="form-row">
         <label for="node-input-messagetype"><i class="fa fa-envelope-o"></i> Msg.type</label>
         <input type="text" id="node-input-messagetype" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-sequencetype"><i class="fa fa-envelope-o"></i> Seq.type</label>
+        <input type="text" id="node-input-sequencetype" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-lclinstrm"><i class="fa fa-envelope-o"></i> Local instrument</label>
+        <input type="text" id="node-input-lclinstrm" />
     </div>
     <div class="form-row">
         <label for="node-input-msgid"><i class="fa fa-tag"></i> Msg.ID</label>
