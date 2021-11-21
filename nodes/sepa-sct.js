@@ -3,29 +3,44 @@
 module.exports = function(RED) {
     function SepaSctNode(config) {
         RED.nodes.createNode(this,config);
-       
+
+        this.name = config.name;
+        this.topic = config.topic;
         this.initname = config.initname;
         this.initiban = config.initiban;
         this.initbic = config.initbic;
+        this.messagetype = config.messagetype;
+        this.msgid = config.msgid;
+        this.batchbooking = config.batchbooking;
+        this.executiondate = config.executiondate;
+
+
+
         var node = this;
 
         node.status({});
 
         node.on('input', function(msg) {
             const SepaSCT = require('../lib/sepaSCT');
-            
+
+            this.topic = (msg.hasOwnProperty("topic")) ? msg.topic : config.topic;
+            this.initname = (msg.hasOwnProperty("initname")) ? msg.initname : config.initname;
+            this.initiban = (msg.hasOwnProperty("initiban")) ? msg.initiban : config.initiban;
+            this.initbic =  (msg.hasOwnProperty("initbic")) ? msg.initbic : config.initbic;
+            this.messagetype = (msg.hasOwnProperty("messagetype")) ? msg.messagetype : config.messagetype;
+            this.msgid = (msg.hasOwnProperty("msgid")) ? msg.msgid :config.msgid;
+            this.batchbooking = (msg.hasOwnProperty("batchbooking")) ? msg.batchbooking : config.batchbooking;
+            this.executiondate = (msg.hasOwnProperty("executiondate")) ? msg.executiondate : config.executiondate;
 
             try {
-              let name = (msg.hasOwnProperty("initname")) ? msg.initname : config.initname;
-              let iban = (msg.hasOwnProperty("initiban")) ? msg.initiban : config.initiban;
-              let bic =  (msg.hasOwnProperty("initbic")) ? msg.initbic : config.initbic;
+              
 
-              var x = new SepaSCT(name, iban, bic);
+              var x = new SepaSCT(this.initname, this.initiban, this.initbic);
 
-              x.messagetype = config.messagetype;
-              x.msgId = (msg.hasOwnProperty("msgid")) ? msg.msgid : config.msgid;
-              x.batchBooking = (msg.hasOwnProperty("batchbooking")) ? msg.batchbooking : config.batchbooking;
-              x.executiondate = (msg.hasOwnProperty("executiondate")) ? msg.executiondate : config.executiondate;
+              x.messagetype = this.messagetype;
+              x.msgId = this.msgid;
+              x.batchBooking = this.batchbooking;
+              x.executiondate = this.executiondate;
 
 
               msg.tx.forEach( tx => {
