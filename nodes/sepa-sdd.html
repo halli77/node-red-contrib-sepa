@@ -18,7 +18,8 @@ Following script tag defines the node
             batchbooking: {value: true},
             executiondate: {value: ""},
             creditorid: {value: ""},
-            localinstrument: {value: ""}
+            localinstrument: {value: ""},
+            sequencetype: {value: ""}
         },
         inputs:1,
         outputs:1,
@@ -34,15 +35,15 @@ Following script tag defines the node
                     {
                         value: "messagetype",
                         options: [
-                            { value: "pain.001.001.03", label: "pain.001.001.03 (SEPA-Credit-Transfer)" }
+                            { value: "pain.008.001.02", label: "pain.008.001.02 (SEPA-Direct-Debit)" }
                         ]
                     }
                 ]
             });
-            $("#node-input-lclinstrm").typedInput({
+            $("#node-input-localinstrument").typedInput({
                 types: [
                     {
-                        value: "lclinstrm",
+                        value: "localinstrument",
                         options: [
                             { value: "FRST", label: "FRST" },
                             { value: "RCUR", label: "RCUR" },
@@ -99,15 +100,15 @@ Define the edit dialog
         <input type="text" id="node-input-initname" placeholder="e.g. John Doe" />
     </div>
     <div class="form-row">
-        <label for="node-config-initiban"><i class="fa fa-university"></i> IBAN</label>
+        <label for="node-input-initiban"><i class="fa fa-university"></i> IBAN</label>
         <input type="text" id="node-input-initiban" placeholder="initiator's IBAN" />
     </div>
     <div class="form-row">
-        <label for="node-config-initbic"><i class="fa fa-university"></i> BIC</label>
+        <label for="node-input-initbic"><i class="fa fa-university"></i> BIC</label>
         <input type="text" id="node-input-initbic" placeholder="initiator's BIC" />
     </div>
     <div class="form-row">
-        <label for="node-config-creditorid"><i class="fa fa-university"></i> Creditor ID</label>
+        <label for="node-input-creditorid"><i class="fa fa-university"></i> Creditor ID</label>
         <input type="text" id="node-input-ci" placeholder="initiator's creditor id" />
     </div>
     <div class="form-row">
