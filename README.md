@@ -1,4 +1,5 @@
 # node-red-contrib-sepa
+![npm](https://img.shields.io/npm/v/node-red-contrib-sepa)
 
 [Node-RED](https://nodered.org/)-nodes that generates [SEPA](https://en.wikipedia.org/wiki/Single_Euro_Payments_Area) payment files.
 
