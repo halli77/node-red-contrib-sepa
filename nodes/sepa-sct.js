@@ -32,6 +32,7 @@ module.exports = function(RED) {
             this.batchbooking = (msg.hasOwnProperty("batchbooking")) ? msg.batchbooking : config.batchbooking;
             this.executiondate = (msg.hasOwnProperty("executiondate")) ? msg.executiondate : config.executiondate;
 
+
             try {
               
 
