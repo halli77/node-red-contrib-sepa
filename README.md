@@ -72,7 +72,7 @@ The input accepts a message object with following attributes (values of the obje
       "iban": "your customers iban",
       "amount": 1.23,
       "purpose": "payment description, e.g. invoice-nr",
-      "mdteid": "mandate id",
+      "mdtid": "mandate id",
       "mdtdate": "2021-10-15",
       "id": "end-to-end-id, customer reference"
     }, 
