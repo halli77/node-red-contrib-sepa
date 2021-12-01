@@ -46,7 +46,7 @@ module.exports = function(RED) {
 
               msg.payload = x.getMsgAsXmlString();
               this.send(msg);
-              node.status({fill:"blue",shape:"ring",text:x.getTxCt() + ' transactions, ' + x.getTxSum() + ' EUR'});
+              node.status({fill:"blue",shape:"ring",text:x.getNumberOfTx + ' transactions, ' + x.getTotalSumOfTx + ' EUR'});
 
             } catch (err) {
               node.error(err);
