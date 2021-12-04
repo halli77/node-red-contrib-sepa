@@ -57,8 +57,8 @@ The input accepts a message object with following attributes (values of the obje
 {
   "topic":  "",
   "initname": "your name",
-  "initiban": "DE00123456781234567890",
-  "initbic": "MARKDEFFXXX",
+  "initiban": "DE12500105170648489890",
+  "initbic": "INGDDEFF",
   "creditorid": "DE98ZZZ09999999999",
   "messagetype": "pain.008.001.02",
   "msgid": "your message id",
