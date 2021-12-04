@@ -5,7 +5,7 @@ name: push to main
 on: 
   push:
     branches: [ main ]
-#  workflow_dispatch:
+    workflow_dispatch:
 
 jobs:
   run-tests:
@@ -16,5 +16,6 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
+      - run: npm install
       - run: npm test
 
