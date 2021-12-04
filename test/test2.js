@@ -8,7 +8,7 @@ var x = new sepaSCT('initName', 'DE12500105170648489890', 'INGDDEFF');
 
 
 
-
+console.log(sepaSCT.validateCI('DE38ZZZ12345678900'));
 
 
 

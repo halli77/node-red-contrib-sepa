@@ -2,8 +2,8 @@
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02 pain.008.001.02.xsd">
   <CstmrDrctDbtInitn>
     <GrpHdr>
-      <MsgId>2021-11-21T16:51:08.001Z</MsgId>
-      <CreDtTm>2021-11-21T16:51:08.013Z</CreDtTm>
+      <MsgId>2021-12-04T11:21:26.583Z</MsgId>
+      <CreDtTm>2021-12-04T11:21:26.594Z</CreDtTm>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>3.33</CtrlSum>
       <InitgPty>
@@ -11,7 +11,7 @@
       </InitgPty>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>2021-11-21T16:51:08.001Z</PmtInfId>
+      <PmtInfId>2021-12-04T11:21:26.583Z</PmtInfId>
       <PmtMtd>DD</PmtMtd>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>3.33</CtrlSum>
@@ -24,18 +24,18 @@
         </LclInstrm>
         <SeqTp>RCUR</SeqTp>
       </PmtTpInf>
-      <ReqdColltnDt>2021-11-21</ReqdColltnDt>
+      <ReqdColltnDt>2021-12-04</ReqdColltnDt>
       <Cdtr>
         <Nm>initName</Nm>
       </Cdtr>
       <CdtrAcct>
         <Id>
-          <IBAN>DE00123456781234567890</IBAN>
+          <IBAN>DE12500105170648489890</IBAN>
         </Id>
       </CdtrAcct>
       <CdtrAgt>
         <FinInstnId>
-          <BIC>MARKDEFFXXX</BIC>
+          <BIC>INGDDEFF</BIC>
         </FinInstnId>
       </CdtrAgt>
       <ChrgBr>SLEV</ChrgBr>
@@ -43,7 +43,7 @@
         <Id>
           <PrvtId>
             <Othr>
-              <Id>DE66ZZZ00000704165</Id>
+              <Id>DE98ZZZ09999999999</Id>
               <SchmeNm>
                 <Prtry>SEPA</Prtry>
               </SchmeNm>
@@ -72,7 +72,7 @@
         </Dbtr>
         <DbtrAcct>
           <Id>
-            <IBAN>DE00123456781234567890</IBAN>
+            <IBAN>AT483200000012345864</IBAN>
           </Id>
         </DbtrAcct>
         <RmtInf>
@@ -100,7 +100,7 @@
         </Dbtr>
         <DbtrAcct>
           <Id>
-            <IBAN>DE00123456781234567890</IBAN>
+            <IBAN>CH5604835012345678009</IBAN>
           </Id>
         </DbtrAcct>
         <RmtInf>
