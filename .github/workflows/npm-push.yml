@@ -1,0 +1,20 @@
+# This workflow will publish a package to npmjs.org when triggered manually
+
+name: push to main
+
+on: 
+  push:
+    branches: [ master ]
+#  workflow_dispatch:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - run: npm test
+
