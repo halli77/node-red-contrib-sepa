@@ -9,6 +9,9 @@
       "sepa-sdd": "nodes/sepa-sdd.js"
     }
   },
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
   "license": "MIT",
   "keywords": [
     "SEPA",
@@ -26,5 +29,9 @@
   },
   "dependencies": {
     "xmlbuilder": "^15.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.3",
+    "request": "^2.88.2"
   }
 }
