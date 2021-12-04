@@ -1,11 +1,11 @@
-const SepaSCT = require('../lib/sepaSCT');
+const sepaSCT = require('../lib/sepaSCT');
 
 
 try {
 
-  var x = new SepaSCT('initName', 'DE00123456781234567890', 'markdeff');
-  x.newTx("Creditor 1", "DE00123456781234567890", 1.11, 'purpose 1', 'id 1');
-  x.newTx("Creditor 2", "DE00123456781234567890", 2.22, 'purpose 2', 'id 2');
+   var x = new sepaSCT('initName', 'DE12500105170648489890', 'INGDDEFF');
+   x.newTx("Creditor 1", "AT483200000012345864", 1.11, 'purpose 1', 'id 1');
+   x.newTx("Creditor 2", "CH5604835012345678009", 2.22, 'purpose 2', 'id 2');
 
 } catch (err) {
   console.log('========>>> ' + err);

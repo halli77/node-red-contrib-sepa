@@ -3,7 +3,7 @@ const SepaSDD = require('../lib/sepaSDD');
 
 try {
 
-  var x = new SepaSDD('initName', 'DE00123456781234567890', 'MARKDEFFXXX', 'DE66ZZZ00000704165', 'CORE', 'RCUR');
+  var x = new SepaSDD('initName', 'DE00123456781234567890', 'MARKDEFFXXX', 'DE98ZZZ09999999999', 'CORE', 'RCUR');
   x.newTx("Creditor 1", "DE00123456781234567890", 1.11, 'purpose 1', 'mref1', '2021-01-01', 'id 1', );
   x.newTx("Creditor 2", "DE00123456781234567890", 2.22, 'purpose 2', 'mref2', '2021-02-02', 'id 2');
 

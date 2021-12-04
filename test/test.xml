@@ -2,8 +2,8 @@
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
   <CstmrCdtTrfInitn>
     <GrpHdr>
-      <MsgId>2021-11-13T09:19:40.494Z</MsgId>
-      <CreDtTm>2021-11-13T09:19:40.509Z</CreDtTm>
+      <MsgId>2021-12-04T08:51:42.555Z</MsgId>
+      <CreDtTm>2021-12-04T08:51:42.575Z</CreDtTm>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>3.33</CtrlSum>
       <InitgPty>
@@ -11,23 +11,23 @@
       </InitgPty>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>2021-11-13T09:19:40.494Z</PmtInfId>
+      <PmtInfId>2021-12-04T08:51:42.555Z</PmtInfId>
       <PmtMtd>TRF</PmtMtd>
       <BtchBookg>true</BtchBookg>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>3.33</CtrlSum>
-      <ReqdExctnDt>2021-11-13</ReqdExctnDt>
+      <ReqdExctnDt>2021-12-04</ReqdExctnDt>
       <Dbtr>
         <Nm>initName</Nm>
       </Dbtr>
       <DbtrAcct>
         <Id>
-          <IBAN>DE00123456781234567890</IBAN>
+          <IBAN>DE12500105170648489890</IBAN>
         </Id>
       </DbtrAcct>
       <DbtrAgt>
         <FinInstnId>
-          <BIC>MARKDEFF</BIC>
+          <BIC>INGDDEFF</BIC>
         </FinInstnId>
       </DbtrAgt>
       <ChrgBr>SLEV</ChrgBr>
@@ -43,7 +43,7 @@
         </Cdtr>
         <CdtrAcct>
           <Id>
-            <IBAN>DE00123456781234567890</IBAN>
+            <IBAN>AT483200000012345864</IBAN>
           </Id>
         </CdtrAcct>
         <RmtInf>
@@ -62,7 +62,7 @@
         </Cdtr>
         <CdtrAcct>
           <Id>
-            <IBAN>DE00123456781234567890</IBAN>
+            <IBAN>CH5604835012345678009</IBAN>
           </Id>
         </CdtrAcct>
         <RmtInf>
