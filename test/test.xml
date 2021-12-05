@@ -2,23 +2,23 @@
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd">
   <CstmrCdtTrfInitn>
     <GrpHdr>
-      <MsgId>2021-12-04T18:18:16.634Z</MsgId>
-      <CreDtTm>2021-12-04T18:18:16.661Z</CreDtTm>
+      <MsgId>my msg id</MsgId>
+      <CreDtTm>2021-12-05T09:04:35.586Z</CreDtTm>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>3.33</CtrlSum>
       <InitgPty>
-        <Nm>initName</Nm>
+        <Nm>John Doe - Debitor</Nm>
       </InitgPty>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>2021-12-04T18:18:16.634Z</PmtInfId>
+      <PmtInfId>my msg id</PmtInfId>
       <PmtMtd>TRF</PmtMtd>
       <BtchBookg>true</BtchBookg>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>3.33</CtrlSum>
-      <ReqdExctnDt>2021-12-04</ReqdExctnDt>
+      <ReqdExctnDt>2021-12-05</ReqdExctnDt>
       <Dbtr>
-        <Nm>initName</Nm>
+        <Nm>John Doe - Debitor</Nm>
       </Dbtr>
       <DbtrAcct>
         <Id>

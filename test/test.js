@@ -1,5 +1,5 @@
 const sepaBASE = require('../lib/sepaBASE');
-// const sepaSCT = require('../lib/sepaSCT');
+const sepaSCT = require('../lib/sepaSCT');
 const assert = require('assert').strict;
 
 
@@ -36,9 +36,39 @@ describe('sepaBASE', function() {
         assert.notStrictEqual(sepaBASE.modulo97('210501700012345678DE01'), 68); 
     });
 
+    it('should validate CI', function() {
+        assert.strictEqual(sepaBASE.validateCI('DE98ZZZ09999999999'), true); 
+        assert.strictEqual(sepaBASE.validateCI('DE98'), false); 
+        assert.strictEqual(sepaBASE.validateCI(''), false); 
+        assert.strictEqual(sepaBASE.validateCI('DE98ZZZ099999999999999999999'), false); 
+        assert.strictEqual(sepaBASE.validateCI('DE98ZZZ09999999998'), false); 
+        assert.strictEqual(sepaBASE.validateCI('DE__ZZZ09999999999'), false); 
+    });
+    
 });
 
 
+
+
+// sepaSCT class test
+
+describe('sepaSCT', function() {
+
+    it('should create xml-file with given hash value', function() {
+        const crypto = require('crypto');
+        const x = new sepaSCT('John Doe - Debitor', 'DE12500105170648489890', 'INGDDEFF');
+        x.messageId = 'my msg id';
+        x.executiondate = '2021-12-15';
+        x.createdDateTime = '2021-12-05T09:04:35.586Z';
+        x.newTx("Creditor 1", "AT483200000012345864", 1.11, 'purpose 1', 'id 1');
+        x.newTx("Creditor 2", "CH5604835012345678009", 2.22, 'purpose 2', 'id 2');
+        const msghash = crypto.createHash('md5').update(x.getMsgAsXmlString()).digest('hex');
+        const expectedhash = "ee7b2a5d70352c22072f5b5b75cdf15e";
+        assert.strictEqual(msghash, expectedhash);
+      
+    });
+    
+});
 
 
 // try {
