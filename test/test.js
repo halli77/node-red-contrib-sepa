@@ -45,6 +45,22 @@ describe('sepaBASE', function() {
         assert.strictEqual(sepaBASE.validateCI('DE98ZZZ09999999998'), false); 
         assert.strictEqual(sepaBASE.validateCI('DE__ZZZ09999999999'), false); 
     });
+
+
+    it('should validate amount', function() {
+        assert.strictEqual(sepaBASE.validateAmount(0), false);
+        assert.strictEqual(sepaBASE.validateAmount(-1), false);
+        assert.strictEqual(sepaBASE.validateAmount(-0.001), false);
+        assert.strictEqual(sepaBASE.validateAmount(0.001), false);
+        assert.strictEqual(sepaBASE.validateAmount(0.01), true);
+        assert.strictEqual(sepaBASE.validateAmount(0.1), true);
+        assert.strictEqual(sepaBASE.validateAmount(0.10), true);
+        assert.strictEqual(sepaBASE.validateAmount(1), true);
+        assert.strictEqual(sepaBASE.validateAmount(10.), true);
+        assert.strictEqual(sepaBASE.validateAmount(10.01), true);
+        assert.strictEqual(sepaBASE.validateAmount(1000000), true);
+
+    });
     
 });
 
