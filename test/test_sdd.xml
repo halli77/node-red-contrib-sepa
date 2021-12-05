@@ -2,16 +2,16 @@
 <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02 pain.008.001.02.xsd">
   <CstmrDrctDbtInitn>
     <GrpHdr>
-      <MsgId>2021-12-04T11:21:26.583Z</MsgId>
-      <CreDtTm>2021-12-04T11:21:26.594Z</CreDtTm>
+      <MsgId>my msg id</MsgId>
+      <CreDtTm>2021-12-05T09:04:35.586Z</CreDtTm>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>3.33</CtrlSum>
       <InitgPty>
-        <Nm>initName</Nm>
+        <Nm>John Doe - Creditor</Nm>
       </InitgPty>
     </GrpHdr>
     <PmtInf>
-      <PmtInfId>2021-12-04T11:21:26.583Z</PmtInfId>
+      <PmtInfId>my msg id</PmtInfId>
       <PmtMtd>DD</PmtMtd>
       <NbOfTxs>2</NbOfTxs>
       <CtrlSum>3.33</CtrlSum>
@@ -24,9 +24,9 @@
         </LclInstrm>
         <SeqTp>RCUR</SeqTp>
       </PmtTpInf>
-      <ReqdColltnDt>2021-12-04</ReqdColltnDt>
+      <ReqdColltnDt>2021-12-05</ReqdColltnDt>
       <Cdtr>
-        <Nm>initName</Nm>
+        <Nm>John Doe - Creditor</Nm>
       </Cdtr>
       <CdtrAcct>
         <Id>
@@ -53,12 +53,12 @@
       </CdtrSchmeId>
       <DrctDbtTxInf>
         <PmtId>
-          <EndToEndId>id 1</EndToEndId>
+          <EndToEndId>e2eid 1</EndToEndId>
         </PmtId>
         <InstdAmt Ccy="EUR">1.11</InstdAmt>
         <DrctDbtTx>
           <MndtRltdInf>
-            <MndtId>mref1</MndtId>
+            <MndtId>mandate 1</MndtId>
             <DtOfSgntr>2021-01-01</DtOfSgntr>
           </MndtRltdInf>
         </DrctDbtTx>
@@ -68,7 +68,7 @@
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
-          <Nm>Creditor 1</Nm>
+          <Nm>Debitor 1</Nm>
         </Dbtr>
         <DbtrAcct>
           <Id>
@@ -81,12 +81,12 @@
       </DrctDbtTxInf>
       <DrctDbtTxInf>
         <PmtId>
-          <EndToEndId>id 2</EndToEndId>
+          <EndToEndId>e2eid 2</EndToEndId>
         </PmtId>
         <InstdAmt Ccy="EUR">2.22</InstdAmt>
         <DrctDbtTx>
           <MndtRltdInf>
-            <MndtId>mref2</MndtId>
+            <MndtId>mandate 2</MndtId>
             <DtOfSgntr>2021-02-02</DtOfSgntr>
           </MndtRltdInf>
         </DrctDbtTx>
@@ -96,7 +96,7 @@
           </FinInstnId>
         </DbtrAgt>
         <Dbtr>
-          <Nm>Creditor 2</Nm>
+          <Nm>Debitor 2</Nm>
         </Dbtr>
         <DbtrAcct>
           <Id>
