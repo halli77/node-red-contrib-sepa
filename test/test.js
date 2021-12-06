@@ -46,7 +46,6 @@ describe('sepaBASE', function() {
         assert.strictEqual(sepaBASE.validateCI('DE__ZZZ09999999999'), false); 
     });
 
-
     it('should validate amount', function() {
         assert.strictEqual(sepaBASE.validateAmount(0), false);
         assert.strictEqual(sepaBASE.validateAmount(-1), false);
@@ -59,9 +58,23 @@ describe('sepaBASE', function() {
         assert.strictEqual(sepaBASE.validateAmount(10.), true);
         assert.strictEqual(sepaBASE.validateAmount(10.01), true);
         assert.strictEqual(sepaBASE.validateAmount(1000000), true);
-
     });
-    
+
+    it('should validate names of involved parties', function() {
+        assert.strictEqual(sepaBASE.validateName('John Doe'), true); 
+        assert.strictEqual(sepaBASE.validateName('John Doe a name with a max of 70 characters which is a quite long name'), true); 
+        assert.strictEqual(sepaBASE.validateName('John Doe a name with a max of 71 characters which is a tooooo long name'), false); 
+        assert.strictEqual(sepaBASE.validateName(''), false); 
+        assert.strictEqual(sepaBASE.validateName("strange but valid: '?,-(+-)./"), true);       
+    });
+
+    it('should validate purposes (remittance info)', function() {
+        assert.strictEqual(sepaBASE.validatePurpose('A perfect valid remittance info'), true); 
+        assert.strictEqual(sepaBASE.validatePurpose('A perfect valid remittance info with a maximum of 140 chars xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'), true); 
+        assert.strictEqual(sepaBASE.validatePurpose('A to long remittance info with 141 chars xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxy'), false); 
+        assert.strictEqual(sepaBASE.validatePurpose("strange but valid: '?,-(+-)./"), true); 
+        assert.strictEqual(sepaBASE.validatePurpose("invalid: §$%&=#;"), false); 
+    });   
 });
 
 
@@ -75,12 +88,13 @@ describe('sepaSCT', function() {
         const crypto = require('crypto');
         const x = new sepaSCT('John Doe - Debitor', 'DE12500105170648489890', 'INGDDEFF');
         x.messageId = 'my msg id';
-        x.executiondate = '2021-12-15';
+        x.execDate = '2021-12-15';
         x.createdDateTime = '2021-12-05T09:04:35.586Z';
         x.newTx("Creditor 1", "AT483200000012345864", 1.11, 'purpose 1', 'id 1');
         x.newTx("Creditor 2", "CH5604835012345678009", 2.22, 'purpose 2', 'id 2');
         const msghash = crypto.createHash('md5').update(x.getMsgAsXmlString()).digest('hex');
-        const expectedhash = "ee7b2a5d70352c22072f5b5b75cdf15e";
+        const expectedhash = "955C7FF478664E68FBECEAB99387E3C9".toLocaleLowerCase();
+        //console.log(x.getMsgAsXmlString())
         assert.strictEqual(msghash, expectedhash);
       
     });
@@ -96,12 +110,13 @@ describe('sepaSDD', function() {
         const crypto = require('crypto');
         const x = new sepaSDD('John Doe - Creditor', 'DE12500105170648489890', 'INGDDEFF', 'DE98ZZZ09999999999', 'CORE', 'RCUR');
         x.messageId = 'my msg id';
-        x.executiondate = '2021-12-15';
+        x.execDate = '2021-12-15';
         x.createdDateTime = '2021-12-05T09:04:35.586Z';
         x.newTx("Debitor 1", "AT483200000012345864", 1.11, 'purpose 1', 'mandate 1', '2021-01-01', 'e2eid 1');
         x.newTx("Debitor 2", "CH5604835012345678009", 2.22, 'purpose 2', 'mandate 2', '2021-02-02', 'e2eid 2');
         const msghash = crypto.createHash('md5').update(x.getMsgAsXmlString()).digest('hex');
-        const expectedhash = "5763ce3a9934ea58daa577bdd5521864";
+        const expectedhash = "AD796269EAA616CCB1E4804A3C0339BA".toLocaleLowerCase();
+        //console.log(x.getMsgAsXmlString())
         assert.strictEqual(msghash, expectedhash);
       
     });
