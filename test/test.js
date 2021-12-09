@@ -106,6 +106,9 @@ describe('sepaSCT', function() {
 
 describe('sepaSDD', function() {
 
+    
+
+
     it('should create xml-file with given hash value', function() {
         const crypto = require('crypto');
         const x = new sepaSDD('John Doe - Creditor', 'DE12500105170648489890', 'INGDDEFF', 'DE98ZZZ09999999999', 'CORE', 'RCUR');
