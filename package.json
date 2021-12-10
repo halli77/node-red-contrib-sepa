@@ -10,8 +10,7 @@
     }
   },
   "scripts": {
-    "test": "mocha test/test.js",
-    "testnr": "mocha test/testnr.js"
+    "test": "mocha \"test/**/*_spec.js\""
   },
   "license": "MIT",
   "keywords": [
