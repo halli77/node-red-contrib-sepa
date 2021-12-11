@@ -1,5 +1,5 @@
-const sepaSDD = require('../lib/sepaSDD');
-const should = require("should");
+// const sepaSDD = require('../lib/sepaSDD');
+// const should = require("should");
 const helper = require("node-red-node-test-helper");
 const sddNode = require("../nodes/sepa-sdd.js");
 
@@ -21,7 +21,7 @@ describe('sepa-sdd node ...', function () {
     helper.load(sddNode, flow, function () {
       var n1 = helper.getNode("n1");
       try {
-        n1.should.have.property('name', 'sepa-my sepa sdd node');
+        n1.should.have.property('name', 'my sepa sdd node');
         done();
       } catch(err) {
         done(err);

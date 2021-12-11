@@ -55,6 +55,9 @@ module.exports = function(RED) {
               });
 
               msg.payload = x.getMsgAsXmlString();
+              msg.numberOfTx = x.getNumberOfTx;
+              msg.totalSumOfTx = x.getTotalSumOfTx;
+              
               this.send(msg);
               node.status({fill:"blue",shape:"ring",text:x.getNumberOfTx + ' transactions, ' + x.getTotalSumOfTx + ' EUR'});
 
