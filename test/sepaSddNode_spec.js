@@ -1,12 +1,11 @@
-const sepaSCT = require('../lib/sepaSCT');
-//const assert = require('assert').strict;
+const sepaSDD = require('../lib/sepaSDD');
 const should = require("should");
 const helper = require("node-red-node-test-helper");
-const sctNode = require("../nodes/sepa-sct.js");
+const sddNode = require("../nodes/sepa-sdd.js");
 
 helper.init(require.resolve('node-red'));
 
-describe('sepa-sct node ...', function () {
+describe('sepa-sdd node ...', function () {
 
   beforeEach(function (done) {
       helper.startServer(done);
@@ -18,11 +17,11 @@ describe('sepa-sct node ...', function () {
   });
 
   it('should be loaded', function (done) {
-    var flow = [{ id: "n1", type: "sepa-sct", name: "my sepa sct node" }];
-    helper.load(sctNode, flow, function () {
+    var flow = [{ id: "n1", type: "sepa-sdd", name: "my sepa sdd node" }];
+    helper.load(sddNode, flow, function () {
       var n1 = helper.getNode("n1");
       try {
-        n1.should.have.property('name', 'my sepa sct node');
+        n1.should.have.property('name', 'sepa-my sepa sdd node');
         done();
       } catch(err) {
         done(err);

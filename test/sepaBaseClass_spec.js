@@ -4,7 +4,7 @@ const assert = require('assert').strict;
 
 
 
-describe('sepaBASE ...', function() {
+describe('sepaBASE class ...', function() {
 
     it('should validate IBAN', function() {
         assert.strictEqual(sepaBASE.validateIBAN('DE12500105170648489890'), true);

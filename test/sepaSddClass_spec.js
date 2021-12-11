@@ -2,7 +2,7 @@ const sepaSDD = require('../lib/sepaSDD');
 const assert = require('assert').strict;
 
 
-describe('sepaSDD ...', function() {
+describe('sepaSDD class ...', function() {
 
 
     it('should create xml-file with given hash value', function() {

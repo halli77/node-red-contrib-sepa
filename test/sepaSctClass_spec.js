@@ -4,7 +4,7 @@ const assert = require('assert').strict;
 
 
 
-describe('sepaSCT ...', function() {
+describe('sepaSCT class ...', function() {
 
     it('should create xml-file with given hash value', function() {
         const crypto = require('crypto');
