@@ -14,7 +14,7 @@ const assert = require('assert').strict;
 
 // sepaBASE class test
 
-describe('sepaBASE', function() {
+describe('sepaBASE ...', function() {
 
     it('should validate IBAN', function() {
         assert.strictEqual(sepaBASE.validateIBAN('DE12500105170648489890'), true);
@@ -82,7 +82,7 @@ describe('sepaBASE', function() {
 
 // sepaSCT class test
 
-describe('sepaSCT', function() {
+describe('sepaSCT ...', function() {
 
     it('should create xml-file with given hash value', function() {
         const crypto = require('crypto');
@@ -104,7 +104,7 @@ describe('sepaSCT', function() {
 
 // sepaSDD class test
 
-describe('sepaSDD', function() {
+describe('sepaSDD ...', function() {
 
     
 
