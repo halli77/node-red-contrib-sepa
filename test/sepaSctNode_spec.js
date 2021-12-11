@@ -1,12 +1,8 @@
-const sepaBASE = require('../lib/sepaBASE');
 const sepaSCT = require('../lib/sepaSCT');
-
-const assert = require('assert').strict;
-
-
-var should = require("should");
-var helper = require("node-red-node-test-helper");
-var sctNode = require("../nodes/sepa-sct.js");
+//const assert = require('assert').strict;
+const should = require("should");
+const helper = require("node-red-node-test-helper");
+const sctNode = require("../nodes/sepa-sct.js");
 
 helper.init(require.resolve('node-red'));
 
