@@ -9,7 +9,7 @@ module.exports = function(RED) {
         this.initiban = config.initiban;
         this.initbic = config.initbic;
         this.messagetype = config.messagetype;
-        this.msgid = config.msgid;
+        this.messageid = config.messageid;
         this.batchbooking = config.batchbooking;
         this.executiondate = config.executiondate;
 
@@ -24,7 +24,7 @@ module.exports = function(RED) {
             this.initiban = (msg.hasOwnProperty("initiban")) ? msg.initiban : config.initiban;
             this.initbic =  (msg.hasOwnProperty("initbic")) ? msg.initbic : config.initbic;
             this.messagetype = (msg.hasOwnProperty("messagetype")) ? msg.messagetype : config.messagetype;
-            this.msgid = (msg.hasOwnProperty("msgid")) ? msg.msgid :config.msgid;
+            this.messageid = (msg.hasOwnProperty("messageid")) ? msg.messageid :config.messageid;
             this.batchbooking = (msg.hasOwnProperty("batchbooking")) ? msg.batchbooking : config.batchbooking;
             this.executiondate = (msg.hasOwnProperty("executiondate")) ? msg.executiondate : config.executiondate;
             this.createddatetime = (msg.hasOwnProperty("createddatetime")) ? msg.createddatetime : "";
@@ -36,8 +36,8 @@ module.exports = function(RED) {
                 x.messagetype = this.messagetype;
                 x.batchBooking = this.batchbooking;
 
-                if (this.msgid !== "") {
-                    x.messageId = this.msgid;
+                if (this.messageid !== "") {
+                    x.messageId = this.messageid;
                 }
                                 
                 if (this.executiondate !== "") {
