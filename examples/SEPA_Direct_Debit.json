@@ -1,0 +1,163 @@
+[
+    {
+        "id": "093b4abce34146b1",
+        "type": "group",
+        "z": "a48e0948ab3f8228",
+        "name": "",
+        "style": {
+            "fill": "#bfdbef",
+            "label": true
+        },
+        "nodes": [
+            "0ce9dd25119c3049",
+            "5a9be6af3b611c27",
+            "8c5c541ebdd1ab1d",
+            "0a3bf7731097c9ca"
+        ],
+        "env": [],
+        "x": 294,
+        "y": 259,
+        "w": 692,
+        "h": 142
+    },
+    {
+        "id": "0ce9dd25119c3049",
+        "type": "sepa-sdd",
+        "z": "a48e0948ab3f8228",
+        "g": "093b4abce34146b1",
+        "name": "",
+        "topic": "",
+        "initname": "",
+        "initiban": "",
+        "initbic": "",
+        "fileid": "",
+        "messagetype": "pain.008.001.02",
+        "messageid": "",
+        "batchbooking": "true",
+        "executiondate": "",
+        "creditorid": "",
+        "localinstrument": "CORE",
+        "sequencetype": "RCUR",
+        "x": 670,
+        "y": 360,
+        "wires": [
+            [
+                "5a9be6af3b611c27"
+            ]
+        ]
+    },
+    {
+        "id": "5a9be6af3b611c27",
+        "type": "debug",
+        "z": "a48e0948ab3f8228",
+        "g": "093b4abce34146b1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8c5c541ebdd1ab1d",
+        "type": "comment",
+        "z": "a48e0948ab3f8228",
+        "g": "093b4abce34146b1",
+        "name": "SEPA Direct Debit Demo",
+        "info": "",
+        "x": 430,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "0a3bf7731097c9ca",
+        "type": "inject",
+        "z": "a48e0948ab3f8228",
+        "g": "093b4abce34146b1",
+        "name": "full msg object",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "messagetype",
+                "v": "pain.008.001.02",
+                "vt": "str"
+            },
+            {
+                "p": "messageid",
+                "v": "my msg id",
+                "vt": "str"
+            },
+            {
+                "p": "initname",
+                "v": "John Doe - Creditor",
+                "vt": "str"
+            },
+            {
+                "p": "initiban",
+                "v": "DE12500105170648489890",
+                "vt": "str"
+            },
+            {
+                "p": "initbic",
+                "v": "INGDDEFF",
+                "vt": "str"
+            },
+            {
+                "p": "batchbooking",
+                "v": "true",
+                "vt": "bool"
+            },
+            {
+                "p": "executiondate",
+                "v": "2021-12-15",
+                "vt": "str"
+            },
+            {
+                "p": "tx",
+                "v": "[{\"name\":\"Debitor 1\",\"iban\":\"AT483200000012345864\",\"amount\":1.11,\"purpose\":\"purpose 1\",\"mdtid\":\"mandate 1\",\"mdtdate\":\"2021-01-01\",\"id\":\"e2eid 1\"},{\"name\":\"Debitor 2\",\"iban\":\"CH5604835012345678009\",\"amount\":2.22,\"purpose\":\"purpose 2\",\"mdtid\":\"mandate 2\",\"mdtdate\":\"2021-02-02\",\"id\":\"e2eid 2\"}]",
+                "vt": "json"
+            },
+            {
+                "p": "createddatetime",
+                "v": "2021-12-05T09:04:35.586Z",
+                "vt": "str"
+            },
+            {
+                "p": "creditorid",
+                "v": "DE98ZZZ09999999999",
+                "vt": "str"
+            },
+            {
+                "p": "localinstrument",
+                "v": "CORE",
+                "vt": "str"
+            },
+            {
+                "p": "sequencetype",
+                "v": "RCUR",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "topicFromMessage",
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "0ce9dd25119c3049"
+            ]
+        ]
+    }
+]

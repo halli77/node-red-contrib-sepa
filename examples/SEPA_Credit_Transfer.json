@@ -1,0 +1,144 @@
+[
+    {
+        "id": "f74895fa02c284ef",
+        "type": "group",
+        "z": "a48e0948ab3f8228",
+        "name": "",
+        "style": {
+            "label": true,
+            "fill": "#bfdbef"
+        },
+        "nodes": [
+            "b9b2b8ee0223ba8d",
+            "b7edd1e9c5af78ed",
+            "a0d38c6dc8767af8",
+            "da28507cf249fcdc"
+        ],
+        "env": [],
+        "x": 294,
+        "y": 79,
+        "w": 692,
+        "h": 142
+    },
+    {
+        "id": "b9b2b8ee0223ba8d",
+        "type": "inject",
+        "z": "a48e0948ab3f8228",
+        "g": "f74895fa02c284ef",
+        "name": "full msg object",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "messagetype",
+                "v": "pain.001.001.03",
+                "vt": "str"
+            },
+            {
+                "p": "messageid",
+                "v": "my msg id",
+                "vt": "str"
+            },
+            {
+                "p": "initname",
+                "v": "John Doe - Debitor",
+                "vt": "str"
+            },
+            {
+                "p": "initiban",
+                "v": "DE12500105170648489890",
+                "vt": "str"
+            },
+            {
+                "p": "initbic",
+                "v": "INGDDEFF",
+                "vt": "str"
+            },
+            {
+                "p": "batchbooking",
+                "v": "true",
+                "vt": "bool"
+            },
+            {
+                "p": "executiondate",
+                "v": "2021-12-15",
+                "vt": "str"
+            },
+            {
+                "p": "tx",
+                "v": "[{\"name\":\"Creditor 1\",\"iban\":\"AT483200000012345864\",\"amount\":1.11,\"purpose\":\"purpose 1\",\"id\":\"id 1\"},{\"name\":\"Creditor 2\",\"iban\":\"CH5604835012345678009\",\"amount\":2.22,\"purpose\":\"purpose 2\",\"id\":\"id 2\"}]",
+                "vt": "json"
+            },
+            {
+                "p": "createddatetime",
+                "v": "2021-12-05T09:04:35.586Z",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "topicFromMessage",
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "a0d38c6dc8767af8"
+            ]
+        ]
+    },
+    {
+        "id": "b7edd1e9c5af78ed",
+        "type": "debug",
+        "z": "a48e0948ab3f8228",
+        "g": "f74895fa02c284ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a0d38c6dc8767af8",
+        "type": "sepa-sct",
+        "z": "a48e0948ab3f8228",
+        "g": "f74895fa02c284ef",
+        "name": "",
+        "topic": "",
+        "initname": "",
+        "initiban": "",
+        "initbic": "",
+        "messagetype": "pain.001.001.03",
+        "messageid": "",
+        "batchbooking": "true",
+        "executiondate": "",
+        "x": 680,
+        "y": 180,
+        "wires": [
+            [
+                "b7edd1e9c5af78ed"
+            ]
+        ]
+    },
+    {
+        "id": "da28507cf249fcdc",
+        "type": "comment",
+        "z": "a48e0948ab3f8228",
+        "g": "f74895fa02c284ef",
+        "name": "SEPA Credit Transfer Demo",
+        "info": "",
+        "x": 440,
+        "y": 120,
+        "wires": []
+    }
+]
