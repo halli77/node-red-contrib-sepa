@@ -32,47 +32,11 @@ describe('sepa-sct node ...', function () {
 
 
 
-    it('should accept full set of attributes from msg', function (done) {
+
+
+    it('should create payload by passing attributes in msg object', function (done) {
         const flow = [
-            { id: "n1", type: "sepa-sct", name: "my sepa sct node", wires:[["n2"]] },
-            { id: "n2", type: "helper" }
-        ];
-
-        helper.load(sctNode, flow, function () {
-            const n1 = helper.getNode("n1");
-            const n2 = helper.getNode("n2");
-            n2.on("input", function (msg) {
-                try {
-                    msg.should.have.property('numberOfTx', 2);
-                    msg.should.have.property('totalSumOfTx', 3.57);
-                    done();
-                } catch(err) {
-                    done(err);
-                }
-            });
-
-            const inputMsgObj = {
-                topic: "topicFromMessage",
-                messagetype: "pain.001.001.03",
-                initname: "John Doe - Debitor",
-                initiban: "DE12500105170648489890",
-                initbic: "INGDDEFF",
-                batchbooking: true,
-                executiondate: "2021-12-06",
-                tx:[
-                        {name: "Creditor 1", iban: "AT483200000012345864", amount: 1.23, purpose: "sct1", id: "e2e-id 1"},
-                        {name: "Creditor 2", iban: "CH5604835012345678009", amount: 2.34, purpose: "sct2", id: "e2e-id 2"}
-                    ]
-            };
-            n1.receive(inputMsgObj);
-        });        
-    });
-
-
-
-    it('should create xml-string in msg.payload with given hash value', function (done) {
-        const flow = [
-            { id: "n1", type: "sepa-sct", name: "my sepa sct node", wires:[["n2"]] },
+            { id: "n1", type: "sepa-sct", name: "my sepa-sct node", wires:[["n2"]] },
             { id: "n2", type: "helper" }
         ];
 
@@ -83,6 +47,108 @@ describe('sepa-sct node ...', function () {
                 try {
                     const expectedhash = "955C7FF478664E68FBECEAB99387E3C9".toLowerCase();
                     msg.should.have.property('payload_md5', expectedhash);
+                    msg.should.have.property('topic', 'topicFromMessage');
+                    done();
+                } catch(err) {
+                    done(err);
+                }
+            });
+
+            const inputMsgObj = {
+                    topic: "topicFromMessage",
+                    messagetype: "pain.001.001.03",
+                    msgid: "my msg id",
+                    initname: "John Doe - Debitor",
+                    initiban: "DE12500105170648489890",
+                    initbic: "INGDDEFF",
+                    batchbooking: true,
+                    executiondate: "2021-12-15",
+                    createddatetime: "2021-12-05T09:04:35.586Z",
+                    tx:[
+                            {name: "Creditor 1", iban: "AT483200000012345864", amount: 1.11, purpose: "purpose 1", id: "id 1"},
+                            {name: "Creditor 2", iban: "CH5604835012345678009", amount: 2.22, purpose: "purpose 2", id: "id 2"}
+                        ]
+                };
+            n1.receive(inputMsgObj);
+        });
+        
+        
+    });
+
+
+
+
+    it('should create payload by passing attributes in node config', function (done) {
+        const flow = [
+            {   id: "n1", 
+                type: "sepa-sct", 
+                name: "my sepa sct node", 
+                topic: "topicFromNode",
+                initname: "John Doe - Debitor",
+                initiban: "DE12500105170648489890",
+                initbic: "INGDDEFF",
+                messagetype: "pain.001.001.03",
+                msgid: "my msg id",
+                batchbooking: true,
+                executiondate: "2021-12-15",
+                wires:[["n2"]] },
+            { id: "n2", type: "helper" }
+        ];
+
+        helper.load(sctNode, flow, function () {
+            const n1 = helper.getNode("n1");
+            const n2 = helper.getNode("n2");
+            n2.on("input", function (msg) {
+                try {
+                    const expectedhash = "955C7FF478664E68FBECEAB99387E3C9".toLowerCase();
+                    msg.should.have.property('payload_md5', expectedhash);
+                    msg.should.have.property('topic', 'topicFromNode');
+                    done();
+                } catch(err) {
+                    done(err);
+                }
+            });
+
+            const inputMsgObj = {
+                createddatetime: "2021-12-05T09:04:35.586Z",
+                tx:[
+                        {name: "Creditor 1", iban: "AT483200000012345864", amount: 1.11, purpose: "purpose 1", id: "id 1"},
+                        {name: "Creditor 2", iban: "CH5604835012345678009", amount: 2.22, purpose: "purpose 2", id: "id 2"}
+                    ]
+            };
+            n1.receive(inputMsgObj);
+        });      
+    });
+
+
+
+
+
+    it('should create payload by overwriting node config attributes by msg object', function (done) {
+        const flow = [
+            {   id: "n1", 
+                type: "sepa-sct", 
+                name: "my sepa sct node", 
+                topic: "topicFromNode",
+                initname: "John Doe - Debitor - node",
+                initiban: "DE12500105170648489890 - node",
+                initbic: "INGDDEFF - node",
+                messagetype: "pain.001.001.03 - node",
+                msgid: "my msg id - node",
+                batchbooking: false,
+                executiondate: "2021-12-01",
+                wires:[["n2"]] },
+            { id: "n2", type: "helper" }
+        ];
+
+        helper.load(sctNode, flow, function () {
+            const n1 = helper.getNode("n1");
+            const n2 = helper.getNode("n2");
+            n2.on("input", function (msg) {
+                try {
+                    const expectedhash = "955C7FF478664E68FBECEAB99387E3C9".toLowerCase();
+                    msg.should.have.property('payload_md5', expectedhash);
+                    msg.should.have.property('topic', 'topicFromMessage');
                     done();
                 } catch(err) {
                     done(err);
@@ -106,11 +172,8 @@ describe('sepa-sct node ...', function () {
             };
             n1.receive(inputMsgObj);
         });
-        
-        
+
     });
 
-
 });
-
 

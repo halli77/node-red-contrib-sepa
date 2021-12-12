@@ -45,9 +45,10 @@ Following script tag defines the node
                     {
                         value: "sequencetype",
                         options: [
-                            { value: "FRST", label: "FRST" },
-                            { value: "RCUR", label: "RCUR" },
-                            { value: "LAST", label: "LAST" }
+                            { value: "FRST", label: "FRST (optional, RCUR preferred)" },
+                            { value: "RCUR", label: "RCUR (recurrent)" },
+                            { value: "FNAL", label: "FNAL (final)" },
+                            { value: "OOFF", label: "OOFF (one off)" }
                         ]
                     }
                 ]
@@ -57,8 +58,8 @@ Following script tag defines the node
                     {
                         value: "localinstrument",
                         options: [
-                            { value: "CORE", label: "CORE" },
-                            { value: "B2B", label: "B2B" }
+                            { value: "CORE", label: "CORE (Core Direct Debit)" },
+                            { value: "B2B", label: "B2B (Business to Business Direct Debit)" }
                         ]
                     }
                 ]

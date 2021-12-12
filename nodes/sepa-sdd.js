@@ -1,39 +1,67 @@
 
-
 module.exports = function(RED) {
     function SepaSddNode(config) {
         RED.nodes.createNode(this,config);
-       
+        
+        this.name = config.name;
+        this.topic = config.topic;
         this.initname = config.initname;
         this.initiban = config.initiban;
         this.initbic = config.initbic;
         this.creditorid = config.creditorid;
+        this.messagetype = config.messagetype;
+        this.msgid = config.msgid;
+        this.batchbooking = config.batchbooking;
+        this.executiondate = config.executiondate;
         this.sequencetype = config.sequencetype;
-        var node = this;
 
+        var node = this;
         node.status({});
 
         node.on('input', function(msg) {
             const SepaSDD = require('../lib/sepaSDD');
+        
+            this.topic = (msg.hasOwnProperty("topic")) ? msg.topic : config.topic;
+            this.initname = (msg.hasOwnProperty("initname")) ? msg.initname : config.initname;
+            this.initiban = (msg.hasOwnProperty("initiban")) ? msg.initiban : config.initiban;
+            this.initbic =  (msg.hasOwnProperty("initbic")) ? msg.initbic : config.initbic;
+            this.messagetype = (msg.hasOwnProperty("messagetype")) ? msg.messagetype : config.messagetype;
+            this.msgid = (msg.hasOwnProperty("msgid")) ? msg.msgid :config.msgid;
+            this.batchbooking = (msg.hasOwnProperty("batchbooking")) ? msg.batchbooking : config.batchbooking;
+            this.executiondate = (msg.hasOwnProperty("executiondate")) ? msg.executiondate : config.executiondate;
+            this.createddatetime = (msg.hasOwnProperty("createddatetime")) ? msg.createddatetime : "";
             
-            //var x = new SepaSDD('initName', 'DE00123456781234567890', 'MARKDEFFXXX', 'DE66ZZZ00000704165', 'CORE', 'RCUR');
+            this.creditorid = (msg.hasOwnProperty("creditorid")) ? msg.creditorid : config.creditorid;
+            this.localinstrument = (msg.hasOwnProperty("localinstrument")) ? msg.localinstrument : config.localinstrument;
+            this.sequencetype = (msg.hasOwnProperty("sequencetype")) ? msg.sequencetype : config.sequencetype;
+
+
+
 
             try {
-                let name = (msg.hasOwnProperty("initname")) ? msg.initname : config.initname;
-                let iban = (msg.hasOwnProperty("initiban")) ? msg.initiban : config.initiban;
-                let bic =  (msg.hasOwnProperty("initbic")) ? msg.initbic : config.initbic;
-                let creditorid = (msg.hasOwnProperty("creditorid")) ? msg.creditorid : config.creditorid;
-                let localinstrument = (msg.hasOwnProperty("localinstrument")) ? msg.localinstrument : config.localinstrument;
-                let sequencetype = (msg.hasOwnProperty("sequencetype")) ? msg.sequencetype : config.sequencetype;
-                var x = new SepaSDD(name, iban, bic, creditorid, localinstrument, sequencetype);
+                var x = new SepaSDD(this.initname, 
+                                    this.initiban, 
+                                    this.initbic, 
+                                    this.creditorid, 
+                                    this.localinstrument, 
+                                    this.sequencetype
+                                    );
 
-                // x.messagetype = config.messagetype;
-                x.msgId = (msg.hasOwnProperty("msgid")) ? msg.msgid : config.msgid;
-                x.batchBooking = (msg.hasOwnProperty("batchbooking")) ? msg.batchbooking : config.batchbooking;
-                x.executiondate = (msg.hasOwnProperty("executiondate")) ? msg.executiondate : config.executiondate;
+                x.messagetype = this.messagetype;
+                x.batchBooking = this.batchbooking;
 
-                //x.newTx("Creditor 2", "DE00123456781234567890", 2.22, 'purpose 2', 'mref2', '2021-02-02', 'id 2');
-
+                if (this.msgid !== "") {
+                    x.messageId = this.msgid;
+                }
+                                
+                if (this.executiondate !== "") {
+                    x.execDate = this.executiondate;
+                }
+                if (this.createddatetime !==  "") {
+                    x.createdDateTime = this.createddatetime;
+                } 
+                
+                
                 msg.tx.forEach( tx => {
                     try {
                         x.newTx(tx.name, tx.iban, tx.amount, tx.purpose, tx.mdtid, tx.mdtdate, tx.id);
@@ -44,9 +72,13 @@ module.exports = function(RED) {
                 });
 
                 msg.payload = x.getMsgAsXmlString();
+                msg.payload_md5 = x.getMsgHash;
                 msg.numberOfTx = x.getNumberOfTx;
                 msg.totalSumOfTx = x.getTotalSumOfTx;
-                msg.payload_md5 = x.getMsgHash;
+
+                msg.topic = this.topic;
+                msg.name = this.name;
+                
                 this.send(msg);
                 node.status({fill:"blue",shape:"ring",text:x.getNumberOfTx + ' transactions, ' + x.getTotalSumOfTx + ' EUR'});
 

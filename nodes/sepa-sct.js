@@ -13,10 +13,7 @@ module.exports = function(RED) {
         this.batchbooking = config.batchbooking;
         this.executiondate = config.executiondate;
 
-
-
         var node = this;
-
         node.status({});
 
         node.on('input', function(msg) {
@@ -37,40 +34,43 @@ module.exports = function(RED) {
                 var x = new SepaSCT(this.initname, this.initiban, this.initbic);
 
                 x.messagetype = this.messagetype;
+                x.batchBooking = this.batchbooking;
+
                 if (this.msgid !== "") {
                     x.messageId = this.msgid;
                 }
-                
-                x.batchBooking = this.batchbooking;
+                                
                 if (this.executiondate !== "") {
                     x.execDate = this.executiondate;
                 }
                 if (this.createddatetime !==  "") {
                     x.createdDateTime = this.createddatetime;
-                } 
-
+                }
+        
                 msg.tx.forEach( tx => {
                     try {
-                    x.newTx(tx.name, tx.iban, tx.amount, tx.purpose, tx.id);
+                        x.newTx(tx.name, tx.iban, tx.amount, tx.purpose, tx.id);
                     } catch (err) {
-                    node.error(err);
-                    node.status({fill:"red",shape:"dot",text:err});
+                        node.error(err);
+                        node.status({fill:"red",shape:"dot",text:err});
                     }
                     
                 });
 
                 msg.payload = x.getMsgAsXmlString();
+                msg.payload_md5 = x.getMsgHash;
                 msg.numberOfTx = x.getNumberOfTx;
                 msg.totalSumOfTx = x.getTotalSumOfTx;
-                msg.payload_md5 = x.getMsgHash;
+                msg.topic = this.topic;
+                msg.name = this.name;
                 
                 this.send(msg);
                 node.status({fill:"blue",shape:"ring",text:x.getNumberOfTx + ' transactions, ' + x.getTotalSumOfTx + ' EUR'});
 
-                } catch (err) {
-                    node.error(err);
-                    node.status({fill:"red",shape:"dot",text:err});
-                }           
+            } catch (err) {
+                node.error(err);
+                node.status({fill:"red",shape:"dot",text:err});
+            }           
             
         });
     }
