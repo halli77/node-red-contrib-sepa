@@ -7,7 +7,7 @@
 # SEPA Credit Transfer
 A credit transfer sends money from the initator (debitor) to on or more recipients (creditors). 
 
-The input accepts a message object with following attributes (values of the object are dummy values):
+The input accepts a message object with following attributes (values of the object are sample values):
 
 ```json
 { "messagetype": "pain.001.001.03",
@@ -46,7 +46,7 @@ A corresponding item in the message object overwrites the value given in the nod
 # SEPA Direct Debit
 A direct debit requests money from one ore more payers. The creditor initiates the payment. The creditor needs a creditor id.
 
-The input accepts a message object with following attributes (values of the object are dummy values):
+The input accepts a message object with following attributes (values of the object are sample values):
 
 ```json
 { "messagetype": "pain.008.001.02",
