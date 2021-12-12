@@ -1,5 +1,4 @@
 
-
 module.exports = function(RED) {
     function SepaSctNode(config) {
         RED.nodes.createNode(this,config);
@@ -31,40 +30,47 @@ module.exports = function(RED) {
             this.msgid = (msg.hasOwnProperty("msgid")) ? msg.msgid :config.msgid;
             this.batchbooking = (msg.hasOwnProperty("batchbooking")) ? msg.batchbooking : config.batchbooking;
             this.executiondate = (msg.hasOwnProperty("executiondate")) ? msg.executiondate : config.executiondate;
+            this.createddatetime = (msg.hasOwnProperty("createddatetime")) ? msg.createddatetime : "";
 
 
             try {
-              
+                var x = new SepaSCT(this.initname, this.initiban, this.initbic);
 
-              var x = new SepaSCT(this.initname, this.initiban, this.initbic);
-
-              x.messagetype = this.messagetype;
-              x.msgId = this.msgid;
-              x.batchBooking = this.batchbooking;
-              x.executiondate = this.executiondate;
-
-
-              msg.tx.forEach( tx => {
-                try {
-                  x.newTx(tx.name, tx.iban, tx.amount, tx.purpose, tx.id);
-                } catch (err) {
-                  node.error(err);
-                  node.status({fill:"red",shape:"dot",text:err});
+                x.messagetype = this.messagetype;
+                if (this.msgid !== "") {
+                    x.messageId = this.msgid;
                 }
                 
-              });
+                x.batchBooking = this.batchbooking;
+                if (this.executiondate !== "") {
+                    x.execDate = this.executiondate;
+                }
+                if (this.createddatetime !==  "") {
+                    x.createdDateTime = this.createddatetime;
+                } 
 
-              msg.payload = x.getMsgAsXmlString();
-              msg.numberOfTx = x.getNumberOfTx;
-              msg.totalSumOfTx = x.getTotalSumOfTx;
-              
-              this.send(msg);
-              node.status({fill:"blue",shape:"ring",text:x.getNumberOfTx + ' transactions, ' + x.getTotalSumOfTx + ' EUR'});
+                msg.tx.forEach( tx => {
+                    try {
+                    x.newTx(tx.name, tx.iban, tx.amount, tx.purpose, tx.id);
+                    } catch (err) {
+                    node.error(err);
+                    node.status({fill:"red",shape:"dot",text:err});
+                    }
+                    
+                });
 
-            } catch (err) {
-              node.error(err);
-              node.status({fill:"red",shape:"dot",text:err});
-            }           
+                msg.payload = x.getMsgAsXmlString();
+                msg.numberOfTx = x.getNumberOfTx;
+                msg.totalSumOfTx = x.getTotalSumOfTx;
+                msg.payload_md5 = x.getMsgHash;
+                
+                this.send(msg);
+                node.status({fill:"blue",shape:"ring",text:x.getNumberOfTx + ' transactions, ' + x.getTotalSumOfTx + ' EUR'});
+
+                } catch (err) {
+                    node.error(err);
+                    node.status({fill:"red",shape:"dot",text:err});
+                }           
             
         });
     }
